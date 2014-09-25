@@ -1,0 +1,1 @@
+This is the blog subdomain of my website. It uses the Hyde theme for Jekyll.
