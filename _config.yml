@@ -1,0 +1,24 @@
+# Dependencies
+markdown:         redcarpet
+highlighter:         true
+
+# Permalinks
+permalink:        pretty
+
+# Setup
+title:            Hayley Anderson
+tagline:          "Hayley Anderson"
+description:      "Hi, I'm a Ruby on Rails student at Metis in New York City. I'm going to be blogging here about what I'm learning."
+url:              https://blog.hayleyanderson.us
+
+author:
+  name:           "Hayley Anderson"
+  url:            https://hayleyanderson.us
+
+paginate:         5
+
+# Custom vars
+
+
+github:
+  repo:           https://github.com/poole/hyde
