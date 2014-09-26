@@ -1,6 +1,6 @@
 # Dependencies
 markdown:         redcarpet
-highlighter:         true
+highlighter:      pygments
 
 # Permalinks
 permalink:        pretty
@@ -9,11 +9,12 @@ permalink:        pretty
 title:            Hayley Anderson
 tagline:          "Hayley Anderson"
 description:      "Hi, I'm a Ruby on Rails student at Metis in New York City. I'm going to be blogging here about what I'm learning."
-url:              https://blog.hayleyanderson.us
+url:              "http://hayleycanderson.github.io"
+baseurl:          "/HayleyBlog"
 
 author:
   name:           "Hayley Anderson"
-  url:            https://hayleyanderson.us
+  url:            http://hayleyanderson.us
 
 paginate:         5
 
@@ -21,4 +22,4 @@ paginate:         5
 
 
 github:
-  repo:           https://github.com/poole/hyde
+  repo:           https://github.com/HayleyCAnderson/HayleyBlog
