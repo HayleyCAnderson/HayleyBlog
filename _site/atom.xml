@@ -2,10 +2,10 @@
 <feed xmlns="http://www.w3.org/2005/Atom">
 
  <title>Hayley Anderson</title>
- <link href="http://hayleycanderson.github.io/atom.xml" rel="self"/>
- <link href="http://hayleycanderson.github.io/"/>
- <updated>2014-09-26T13:15:19-04:00</updated>
- <id>http://hayleycanderson.github.io</id>
+ <link href="http://blog.hayleyanderson.us/atom.xml" rel="self"/>
+ <link href="http://blog.hayleyanderson.us/"/>
+ <updated>2014-09-26T14:11:20-04:00</updated>
+ <id>http://blog.hayleyanderson.us</id>
  <author>
    <name>Hayley Anderson</name>
    <email></email>
@@ -14,9 +14,9 @@
  
  <entry>
    <title>First Post</title>
-   <link href="http://hayleycanderson.github.io/2014/09/24/first-post/"/>
+   <link href="http://blog.hayleyanderson.us/2014/09/24/first-post/"/>
    <updated>2014-09-24T00:00:00-04:00</updated>
-   <id>http://hayleycanderson.github.io/2014/09/24/first-post</id>
+   <id>http://blog.hayleyanderson.us/2014/09/24/first-post</id>
    <content type="html">&lt;p&gt;Hi, this is my first post using Jekyll. I&amp;#39;m going to start posting on this blog soon, so please check back later. My personal website, which is fully up and running, can be found &lt;a href=&quot;http://hayleyanderson.us&quot;&gt;here&lt;/a&gt;.&lt;/p&gt;
 </content>
  </entry>

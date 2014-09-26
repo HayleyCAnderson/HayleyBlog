@@ -1,19 +1,20 @@
 # Dependencies
-markdown:         redcarpet
-highlighter:      pygments
+markdown: redcarpet
+highlighter: pygments
 
 # Permalinks
-permalink:        pretty
+permalink: pretty
+relative_permalinks: true
 
 # Setup
-title:            Hayley Anderson
-tagline:          "Hayley Anderson"
-description:      "Hi, I'm a Ruby on Rails student at Metis in New York City. I'm going to be blogging here about what I'm learning."
-url:              "http://hayleycanderson.github.io"
-baseurl:          "/HayleyBlog"
+title: Hayley Anderson
+tagline: 'Hayley Anderson'
+description: "Hi, I'm a Ruby on Rails student at Metis in New York City. I'm going to be blogging here about what I'm learning."
+url: http://blog.hayleyanderson.us
+baseurl: /
 
 author:
-  name:           "Hayley Anderson"
+  name:           'Hayley Anderson'
   url:            http://hayleyanderson.us
 
 paginate:         5
