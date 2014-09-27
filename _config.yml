@@ -8,13 +8,13 @@ relative_permalinks: true
 
 # Setup
 title: Hayley Anderson
-tagline: 'Hayley Anderson'
+tagline: "Learning Ruby and Loving New York"
 description: "Hi, I'm a Ruby on Rails student at Metis in New York City. I'm going to be blogging here about what I'm learning."
 url: http://blog.hayleyanderson.us
 baseurl: /
 
 author:
-  name:           'Hayley Anderson'
+  name:           "Hayley Anderson"
   url:            http://hayleyanderson.us
 
 paginate:         5
