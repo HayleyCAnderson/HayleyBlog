@@ -4,7 +4,7 @@
  <title>Hayley Anderson</title>
  <link href="http://blog.hayleyanderson.us/atom.xml" rel="self"/>
  <link href="http://blog.hayleyanderson.us/"/>
- <updated>2014-10-03T15:39:38-04:00</updated>
+ <updated>2014-10-03T15:45:57-04:00</updated>
  <id>http://blog.hayleyanderson.us</id>
  <author>
    <name>Hayley Anderson</name>
@@ -38,6 +38,8 @@
 &lt;p&gt;Git does far, far more than I can even begin to talk about, but I wanted to address some basic misunderstandings that I&amp;#39;ve struggled with and have seen others struggling with. There is lots of &lt;a href=&quot;https://www.atlassian.com/git/tutorials/setting-up-a-repository&quot;&gt;information&lt;/a&gt; out there, but almost all of it assumes some prior level of understanding (and that you&amp;#39;re working on a large project with others), even when explaining the basics.&lt;/p&gt;
 
 &lt;p&gt;This has been another overly long post, but if you&amp;#39;re interested in the difficulties of beginner programmers (whether you&amp;#39;ve been one yourself or not), &lt;a href=&quot;http://christinacacioppo.com/blog/learning-online&quot;&gt;this piece&lt;/a&gt; is an incredibly interesting, non-git-related blog post that I recently read and highly recommend.&lt;/p&gt;
+
+&lt;p&gt;P.S. Save completely separate backups before attempting anything in git that you aren&amp;#39;t confident about.&lt;/p&gt;
 </content>
  </entry>
  
