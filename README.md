@@ -1,1 +1,4 @@
-This is the blog subdomain of my website. It uses the Hyde theme for Jekyll.
+Hayley's Website
+==============
+
+Welcome to my blog! You can view the blog itself at [blog.hayleyanderson.us](http://blog.hayleyanderson.us).
