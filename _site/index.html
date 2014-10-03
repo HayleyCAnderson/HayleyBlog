@@ -10,7 +10,7 @@
 
   <title>
     
-      Home &middot; Hayley Anderson
+      Blog &middot; Hayley Anderson
     
   </title>
 
@@ -27,6 +27,18 @@
 
   <!-- RSS -->
   <link rel="alternate" type="application/rss+xml" title="RSS" href="/atom.xml">
+
+  <script>
+  (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+  (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+  m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+  })(window,document,'script','//www.google-analytics.com/analytics.js','ga');
+  ga('create', 'UA-51276772-2', 'auto');
+  ga('require', 'linkid', 'linkid.js');
+  ga('require', 'displayfeatures');
+  ga('send', 'pageview');
+  </script>
+
 </head>
 
 
@@ -37,11 +49,11 @@
     <img src="/public/css/headshot.jpg">
     <div class="sidebar-about">
       <h1>Hayley Anderson</h1>
-      <p>Hi, I'm a Ruby on Rails student at Metis in New York City. I'm going to be blogging here about what I'm learning.</p>
+      <p>Hi, I'm a Ruby on Rails student at Metis in New York City. This is my blog about what I'm learning.</p>
     </div>
 
     <ul class="sidebar-nav">
-      <li class="sidebar-nav-item">
+      <li class="sidebar-nav-item active">
         <strong><a href="/">Blog</a></strong>
       </li>
 
@@ -62,7 +74,7 @@
 
       <li class="sidebar-nav-item"><a href="http://hayleyanderson.us" title="Hayley Anderson Homepage">Home</a></li>
       <li class="sidebar-nav-item"><a href="http://hayleyanderson.us/resume" title="Hayley Anderson Web Development Resume">Resume</a></li>
-      <li class="sidebar-nav-item"><a href="https://github.com/HayleyCAnderson/HayleyBlog" title="Hyde Theme Github" target="_blank">Theme</a></li>
+      <li class="sidebar-nav-item"><a href="http://hyde.getpoole.com" title="Hyde Jekyll Theme" target="_blank">Theme</a></li>
     </ul>
    
       <a href="mailto:hayleyanderson@zoho.com" title="Hayley Anderson Email"><span class="typcn typcn-mail"></span></a><a href="https://www.linkedin.com/in/hayleycanderson" title="Hayley Anderson LinkedIn" target="_blank"><span class="typcn typcn-social-linkedin"></span></a><a href="https://twitter.com/HayleyCAnderson" title="Hayley Anderson Twitter" target="_blank"><span class="typcn typcn-social-twitter"></span></a><a href="https://github.com/HayleyCAnderson" title="Hayley Anderson Github" target="_blank"><span class="typcn typcn-social-github"></span></a>
@@ -76,14 +88,61 @@
   
   <div class="post">
     <h1 class="post-title">
-      <a href="/2014/09/24/first-post/">
-        First Post
+      <a href="/2014/10/03/github-and-the-magical-black-hole-of-version-control/">
+        Github and the Magical Black Hole of Version Control
       </a>
     </h1>
 
-    <span class="post-date">24 Sep 2014</span>
+    <span class="post-date">03 Oct 2014</span>
 
-    <p>Hi, this is my first post using Jekyll. I&#39;m going to start posting on this blog soon, so please check back later. My personal website, which is fully up and running, can be found <a href="http://hayleyanderson.us">here</a>.</p>
+    <p>In celebration of my first-ever (successful!) pull request, I&#39;m dedicating this post to the use of git and Github. The concept of git and Github was a huge source of frustration to me early in the summer, when I painfully managed to get my website onto Github without any understanding of what I was doing. I&#39;m still learning how to understand and use these tools effectively and appropriately, and I&#39;m sure I will be for a very long time.</p>
+
+<p>Git isn&#39;t something you can really see, certainly not in the way you can see the results of HTML or Ruby that you wrote, and a beginner uses git and Github differently from someone working on a team. And unlike with other concepts, there aren&#39;t many resources out there that explain the basics or how to improve on your own. <a href="https://try.github.io/levels/1/challenges/1">This tutorial</a> is great for learning the commands, but I when I started, I didn&#39;t understand what I was accomplishing with these commands or why.</p>
+
+<p>First you need to understand that git is a method of version control and tracks your changes, while Github is a website that makes git much easier to use and understand. Git runs Github, not the other way around. I think of git as a magical black hole that permanently absorbs information from files and can communicate between your computer and Github, but only if you tell it to and are responsible about doing so.</p>
+
+<p>You can connect files on your computer to Github by creating a folder, or <a href="http://files.fosswire.com/2007/08/fwunixref.pdf">directory</a>, adding in the files that you want to put on Github, and sprinkling magical git &#39;init&#39; dust on the folder to transform it into a repository. This doesn&#39;t really change the folder; it just tells git to watch the folder. You then create a repository on Github, and tell git as directed that you want to connect the repository on your computer and the respository on Github.</p>
+
+<p>Once your folder is a git repository, git can see the files in it, but it can&#39;t do anything with them. You need to &#39;add&#39; those files. Now they&#39;re &#39;staged&#39; but git still isn&#39;t doing anything with them; it just has the potential. If you want git to actually save those files or the new changes in them, you need to &#39;commit&#39; them. The files on your computer will be unchanged, but now copies of those files, any past versions of those files that you committed, and the &#39;commit&#39; messages you added will permanently reside in the magical black hole of git. It&#39;s only at this point that you can tell Github about these files, and if you&#39;re ready, &#39;push&#39; them into the &#39;master&#39; branch of the repository on Github.</p>
+
+<p>If you change your documents and want the changes to appear on Github you need to &#39;add&#39;, &#39;commit&#39;, and &#39;push&#39;, or just &#39;add&#39; and &#39;commit&#39; if you want git to save and track your changes but you don&#39;t want them to appear online yet. You might notice that you can edit files in Github and think that this will be easier, but it won&#39;t be. This will likely result in conflicts, or differences between versions, which are frustrating and confusing and are not supposed to happen while you&#39;re working alone. Later when you&#39;re a contributing directly to a repository with other developers, you will have to carefully &#39;pull&#39; their changes as they add them, thereby updating what you have locally on your computer, while making and pushing your own changes. This is when conflicts typically occur.</p>
+
+<p>Git doesn&#39;t like conflicts because its purpose is to orchestrate different people working on the same project and to encourage organized, planned changes. To git, even if you&#39;re working alone, the repository on your computer and the repository on Github are still separate places. It expects that you are working only on the files on your computer and that you, like your files, are unaware of what is happening on Github until you ask git and it tells you.</p>
+
+<p>If you&#39;re interested in someone else&#39;s project, you can &#39;fork&#39; or &#39;clone&#39; it, downloading it to your own Github account or computer, where you can play with it as you wish. If eventually you do this to an open source project and you commit useful changes to your forked or cloned version, you can submit a &#39;pull request&#39; to ask those in charge of the original project to &#39;pull&#39; your changes into their own main version of the project, and actually use them.</p>
+
+<p>If you want to make a series of changes you&#39;re unsure about or take your work on differing paths, you can create a new branch. Branches separate different series of changes. In practice, if you have a currently functioning project but want to change it, you will probably create and commit your new changes to a &#39;development&#39; branch, where the changes are completely separate from the main &#39;master&#39; branch that your functioning project most likely lives in. The changes in &#39;development&#39; will leave your master branch untouched until you &#39;merge&#39; the branches, adding the new changes from the new branch into the original branch.</p>
+
+<p>Git does far, far more than I can even begin to talk about, but I wanted to address some basic misunderstandings that I&#39;ve struggled with and have seen others struggling with. There is lots of <a href="https://www.atlassian.com/git/tutorials/setting-up-a-repository">information</a> out there, but almost all of it assumes some prior level of understanding (and that you&#39;re working on a large project with others), even when explaining the basics.</p>
+
+<p>This has been another overly long post, but if you&#39;re interested in the difficulties of beginner programmers (whether you&#39;ve been one yourself or not), <a href="http://christinacacioppo.com/blog/learning-online">this piece</a> is an incredibly interesting, non-git-related blog post that I recently read and highly recommend.</p>
+
+  </div>
+  
+  <div class="post">
+    <h1 class="post-title">
+      <a href="/2014/09/26/introduction-to-object-oriented-programming/">
+        Introduction to Object-Oriented Programming
+      </a>
+    </h1>
+
+    <span class="post-date">26 Sep 2014</span>
+
+    <p>Although the first week of the Metis Ruby on Rails course has been much less intense than I&#39;d expected, the first week has been a somewhat jolting dive into object-oriented programming. Before the class started, the bits of Ruby I&#39;d done were just lines of code. I thought classes were for CSS, methods were just words that did cool things to variables, and objects were for special uses of Python or Java.</p>
+
+<p>Arrays, hashes, strings, numbers, variables, and performing basic functions on them are the easy bits. I&#39;ve had a lot more difficulty wrapping my head around objects and what to do with them.</p>
+
+<p>We jumped into using objects on Day One, when we created a simple guessing game. The computer picks a random number between one and ten, and you try to guess what it is (until you get it wrong three times). Then we added the ability to play multiple rounds, and to end the game by telling you how many times you won, as well as the depressingly-close-to-three average number of guesses per round.</p>
+
+<p>This game uses at least a Game class and a Round class, and muliple methods, or chunks of useful code, within each of them. There&#39;s only one game, or one game object, each time you run the program, but there are multiple rounds, or multiple instances of the round object. Or more, multiple round objects. The Game class must introduce the game, run the rounds, count the total scores, and announce the scores at the end. This means that the class should contain at least a welcome method, a loop that creates and starts each round, a scoring method, and an ending method.</p>
+
+<p>The Round class, meanwhile, must choose a random number, ask for guesses, tally guesses to be calculated in the average, evaluate guesses, and respond. It gets to have a method for each step, and a loop that runs the guess/tally/evaluation/response pieces three times, unless the loop is broken by a correct guess. (Which then starts a new round, unless the game has already looped through the Round class five times.)</p>
+
+<p>After my initial dismay about cutting a program into pieces, the part I struggled with was understanding how the rounds worked as objects, and more specifically, getting the two classes to communicate on the guess count. Having the game count and total the wins on its own was simple, but the game kept counting only one guess for each round (definitely not accurate). In the end, the solution was adding a method to the Round class that simply pointed to the variable collecting the guess tally, and then, in the loop within the Game class, calling said method on each instance of the Round class.</p>
+
+<p>On the first day, the idea of having an object (a class) that&#39;s also multiple objects (each instance), was incredibly confusing. A few days later, it makes a whole lot more sense, though I still have to fight my inclination to keep the numbers of classes and methods as small as I can get away with. It&#39;s only been a week though, and I&#39;ve come a pretty long way. My little <a href="https://github.com/HayleyCAnderson/WeekOne/blob/master/music.rb">music database solution</a> has six whole methods, accurate names, and appropriate spacing that I did entirely without help or pointed suggestions!</p>
+
+<p>I&#39;m excited to have started looking at data, and I can&#39;t wait for next week, when we start working with SQL, HTTP, gems, and Sinatra. I think having a less limited view of the use of code will help, and I&#39;m eager to start moving towards work that has more real-life applications. Check back next week, and I&#39;ll try to improve my blog game as well as my distaste for classes.</p>
 
   </div>
   
