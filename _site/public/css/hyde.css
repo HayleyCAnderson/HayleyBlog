@@ -13,7 +13,6 @@
  * https://github.com/poole/hyde.
  */
 
-
 /*
  * Contents
  *
@@ -26,7 +25,7 @@
 
 @font-face {
   font-family: 'BebasNeue Bold';
-  src:url('BebasNeue Bold.ttf') format('truetype');
+  src:url('../BebasNeue Bold.ttf') format('truetype');
 }
 
 /*
@@ -48,7 +47,6 @@ html {
     font-size: 20px;
   }
 }
-
 
 /*
  * Sidebar
@@ -73,12 +71,16 @@ html {
     text-align: left;
   }
 }
-
 .sidebar img {
   width: 170px;
   margin: 0 auto;
   margin-bottom: 30px;
   border-radius: 170px;
+}
+@media (max-height: 32rem) and (min-width: 48rem) {
+  .sidebar img {
+    display: none;
+  }
 }
 
 /* Sidebar links */
@@ -94,7 +96,6 @@ html {
   font-family: 'BebasNeue Bold', Helvetica, Arial, sans-serif;
   font-size: 3.15rem;
 }
-
 .sidebar-about p {
   margin-bottom: 10px;
 }
@@ -115,7 +116,6 @@ a.sidebar-nav-item:focus {
 .sidebar-nav-item.active {
   font-weight: bold;
 }
-
 .typcn {
   font-family: 'typicons';
   width: 100%;
@@ -124,7 +124,11 @@ a.sidebar-nav-item:focus {
   font-size: 140%;
   color: #F3EFF0;
 }
-
+@media (max-width: 48rem) {
+  .typcn {
+    margin: 0 11px;
+  }
+}
 .typcn:hover {
   color: #1DC4F3;
 }
@@ -144,7 +148,6 @@ a.sidebar-nav-item:focus {
   }
 }
 
-
 /* Container
  *
  * Align the contents of the site above the proper threshold with some margin-fu
@@ -155,7 +158,6 @@ a.sidebar-nav-item:focus {
   padding-top:    4rem;
   padding-bottom: 4rem;
 }
-
 @media (min-width: 48rem) {
   .content {
     max-width: 38rem;
@@ -163,7 +165,6 @@ a.sidebar-nav-item:focus {
     margin-right: 2rem;
   }
 }
-
 @media (min-width: 64rem) {
   .content {
     margin-left: 22rem;
@@ -188,15 +189,12 @@ a.sidebar-nav-item:focus {
     margin-right: 20rem;
   }
 }
-
 @media (min-width: 64rem) {
   .layout-reverse .content {
     margin-left: 4rem;
     margin-right: 22rem;
   }
 }
-
-
 
 /*
  * Themes
