@@ -116,10 +116,9 @@ a.sidebar-nav-item:focus {
 .sidebar-nav-item.active {
   font-weight: bold;
 }
+
 .typcn {
   font-family: 'typicons';
-  width: 100%;
-  position: relative;
   margin: 0 22px;
   font-size: 140%;
   color: #F3EFF0;
@@ -132,6 +131,15 @@ a.sidebar-nav-item:focus {
 .typcn:hover {
   color: #1DC4F3;
 }
+.typcn-rss {
+  float: right;
+  display: block;
+  margin-right: 7px;
+  margin-left: 0px;
+  font-size: 130%;
+  color: #282520;
+}
+
 
 /* Sticky sidebar
  *
