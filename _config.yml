@@ -15,6 +15,7 @@ baseurl: /
 
 author:
   name:           "Hayley Anderson"
+  email:          "hayleyanderson@zoho.com"
   url:            http://hayleyanderson.us
 
 paginate:         5
