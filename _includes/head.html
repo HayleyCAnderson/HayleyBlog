@@ -13,8 +13,13 @@
     {% endif %}
   </title>
 
-  <meta name="title" content="Blog &middot; Hayley Anderson">
-  <meta name="description" content="Hayley Anderson is an aspiring web developer based in New York City and a recent graduate of Northeastern University.">
+  <meta name="title" content="{{ page.title }} &middot; {{ site.title }}">
+
+  {% if page.title == "Blog" %}
+    <meta name="description" content="Hayley Anderson is an aspiring web developer based in New York City and a recent graduate of Northeastern University.">
+  {% else %}
+    <meta name="description" content="{{ page.excerpt }}">
+  {% endif %}
 
   <!-- CSS -->
   <link rel="stylesheet" href="/public/css/poole.css">
