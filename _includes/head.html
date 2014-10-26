@@ -16,9 +16,9 @@
   <meta name="title" content="{{ page.title }} &middot; {{ site.title }}">
 
   {% if page.title == "Blog" %}
-    <meta name="description" content="Hayley Anderson is an aspiring web developer based in New York City and a recent graduate of Northeastern University.">
+    <meta name="description" content="Hayley Anderson is a web developer based in New York City. Her skills include Ruby on Rails, HTML5, CSS3, and JavaScript.">
   {% else %}
-    <meta name="description" content="{{ page.excerpt }}">
+    <meta name="description" content="{{ page.excerpt | strip_html }}">
   {% endif %}
 
   <!-- CSS -->
