@@ -4,13 +4,34 @@
  <title>Hayley Anderson</title>
  <link href="http://blog.hayleyanderson.us/atom.xml" rel="self"/>
  <link href="http://blog.hayleyanderson.us/"/>
- <updated>2014-10-21T10:18:12-04:00</updated>
+ <updated>2014-10-25T19:56:35-04:00</updated>
  <id>http://blog.hayleyanderson.us/</id>
  <author>
    <name>Hayley Anderson</name>
    <email>hayleyanderson@zoho.com</email>
  </author>
 
+ 
+ <entry>
+   <title>Strings and Arrays and Linked Lists, Oh My!</title>
+   <link href="http://blog.hayleyanderson.us/2014/10/25/strings-and-arrays-and-linked-lists-oh-my/"/>
+   <updated>2014-10-25T00:00:00-04:00</updated>
+   <id>http://blog.hayleyanderson.us/2014/10/25/strings-and-arrays-and-linked-lists-oh-my</id>
+   <content type="html">&lt;p&gt;I&amp;#39;ve spent some time the past couple weeks learning about data structures and algorithms. I started out &lt;a href=&quot;http://code.tutsplus.com/tutorials/algorithms-and-data-structures--cms-20437&quot;&gt;here&lt;/a&gt;, reading about some of the basics of data structures. I&amp;#39;ve since been reading &lt;a href=&quot;http://interactivepython.org/runestone/static/pythonds/index.html&quot;&gt;Problem Solving with Algorithms and Data Structures&lt;/a&gt; on Interactive Python, and everything is starting to make more sense.&lt;/p&gt;
+
+&lt;p&gt;Strings, arrays, and linked lists are a few types of data structures - objects used to store information. They&amp;#39;re used in algorithms, which are sort of like the underlying processes behind programs. Programs are created to make certain things happen, but algorithms are more general. They focus more on the details of how data is stored and manipulated. As a result, one of the main concerns with algorithms is their effectiveness in terms of speed and memory use.&lt;/p&gt;
+
+&lt;p&gt;Speed of an algorithm is represented by Big-O (order of magnitude) notation. Big-O notation is shown as O(function of n), with n being the size of the problem - for example, if 5 items are being iterated over in the algorithm, n is 5. Since algorithms are not meant for particular situations, n is sometimes treated like the limit to infinity. This means that f(n) is often simplified so that most algorithms give just a few functions for Big-O notation.&lt;/p&gt;
+
+&lt;p&gt;Some of the common functions are constant, O(1), logarithmic, O(log(n)), linear, O(n), log-linear, O(nlog(n)), and quadratic, O(n&lt;sup&gt;2&lt;/sup&gt;). If you look at these functions on a &lt;a href=&quot;http://interactivepython.org/runestone/static/pythonds/AlgorithmAnalysis/BigONotation.html&quot;&gt;graph&lt;/a&gt;, you can see that they&amp;#39;re in order of increasing slope. Algorithms with functions of lower slope, such as log(n), are typically preferred over algorithms with functions of higher slope, such as n&lt;sup&gt;2&lt;/sup&gt;, because they are less likely to take an unacceptable amount of time if the dataset grows very large.&lt;/p&gt;
+
+&lt;p&gt;A constant algorithm takes the same amount of time regardless of the size of the problem - maybe the algorithm simply replaces the first item in an array without regard to the other items in the list. A linear algorithm may have a single loop that loops through a list of n items once, so as n increases, the time required linearly increases.&lt;/p&gt;
+
+&lt;p&gt;A logarithmic algorithm may also have a loop, but the loop may break or be limited so that the amount of time required does not increase as quickly as the number of items increases. On the other hand, a quadratic algorithm could have a loop looping through each item &lt;em&gt;within&lt;/em&gt; the first loop. In this situation, the time required obviously increases very quickly as n grows very large, and it suggests that another algorithm may be preferable.&lt;/p&gt;
+
+&lt;p&gt;I&amp;#39;m still learning how to actually write algorithms, but last night I was able to watch a practice technical interview through &lt;a href=&quot;https://www.facebook.com/groups/LadiesStormHackathons/&quot;&gt;Lady Storm Hackathons&lt;/a&gt;, which helped a lot in elucidating the mysterious coding interview. With some more practice, I hope to catch up with some of the computer science knowledge I&amp;#39;ve missed in time to do well in coding interviews.&lt;/p&gt;
+</content>
+ </entry>
  
  <entry>
    <title>Running on Rails</title>
