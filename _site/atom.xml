@@ -4,7 +4,7 @@
  <title>Hayley Anderson</title>
  <link href="http://blog.hayleyanderson.us/atom.xml" rel="self"/>
  <link href="http://blog.hayleyanderson.us/"/>
- <updated>2014-10-25T20:13:38-04:00</updated>
+ <updated>2014-10-30T22:58:38-04:00</updated>
  <id>http://blog.hayleyanderson.us/</id>
  <author>
    <name>Hayley Anderson</name>
@@ -29,7 +29,7 @@
 
 &lt;p&gt;A logarithmic algorithm may also have a loop, but the loop may break or be limited so that the amount of time required does not increase as quickly as the number of items increases. On the other hand, a quadratic algorithm could have a loop looping through each item &lt;em&gt;within&lt;/em&gt; the first loop. In this situation, the time required obviously increases very quickly as n grows very large, and it suggests that another algorithm may be preferable.&lt;/p&gt;
 
-&lt;p&gt;I&amp;#39;m still learning how to actually write algorithms, but last night I was able to watch a practice technical interview through &lt;a href=&quot;https://www.facebook.com/groups/LadiesStormHackathons/&quot;&gt;Lady Storm Hackathons&lt;/a&gt;, which helped a lot in elucidating the mysterious coding interview. With some more practice, I hope to catch up with some of the computer science knowledge I&amp;#39;ve missed in time to do well in coding interviews.&lt;/p&gt;
+&lt;p&gt;I&amp;#39;m still learning how to actually write algorithms, but last night I was able to watch a practice technical interview through &lt;a href=&quot;https://www.facebook.com/groups/LadiesStormHackathons/&quot;&gt;Ladies Storm Hackathons&lt;/a&gt;, which helped a lot in elucidating the mysterious coding interview. With some more practice, I hope to catch up with some of the computer science knowledge I&amp;#39;ve missed in time to do well in coding interviews.&lt;/p&gt;
 </content>
  </entry>
  
