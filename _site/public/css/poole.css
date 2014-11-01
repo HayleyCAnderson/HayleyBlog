@@ -358,6 +358,10 @@ tbody tr:nth-child(odd) th {
 .fb-share-button span {
   vertical-align: top !important;
 }
+.IN-widget {
+  height: 20px !important;
+  margin-left: 10px;
+}
 
 
 /*
