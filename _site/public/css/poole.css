@@ -351,6 +351,13 @@ tbody tr:nth-child(odd) th {
 .related-posts li a:hover small {
   color: inherit;
 }
+.fb-share-button {
+  height: 20px !important;
+  margin-left: 10px;
+}
+.fb-share-button span {
+  vertical-align: top !important;
+}
 
 
 /*
