@@ -4,13 +4,59 @@
  <title>Hayley Anderson</title>
  <link href="http://blog.hayleyanderson.us/atom.xml" rel="self"/>
  <link href="http://blog.hayleyanderson.us/"/>
- <updated>2014-11-15T16:50:26-05:00</updated>
+ <updated>2014-11-27T15:11:50-05:00</updated>
  <id>http://blog.hayleyanderson.us/</id>
  <author>
    <name>Hayley Anderson</name>
    <email>hayleyanderson@zoho.com</email>
  </author>
 
+ 
+ <entry>
+   <title>Formception</title>
+   <link href="http://blog.hayleyanderson.us/2014/11/27/formception/"/>
+   <updated>2014-11-27T00:00:00-05:00</updated>
+   <id>http://blog.hayleyanderson.us/2014/11/27/formception</id>
+   <content type="html">&lt;p&gt;Or how to make forms within forms to make forms within forms. The key here is the magic (yes, actual magic) of &lt;code&gt;accepts_nested_attributes_for&lt;/code&gt;.&lt;/p&gt;
+
+&lt;p&gt;When we recently had the opportunity to choose a group project to work on, I insisted on the &lt;a href=&quot;http://formr-orlatter.herokuapp.com&quot;&gt;Survey Monkey clone&lt;/a&gt; because I thought it would present some interesting challenges. Did I actually have any idea of how to handle those challenges? No, not really, but it was quite a fun journey.&lt;/p&gt;
+
+&lt;p&gt;We decided pretty quickly to have separate tables and models for surveys, questions, and answers, but have only a one-page form for creating a survey complete with questions and answers. This then posed the problem of how to best create the questions and answers with a form for a survey.&lt;/p&gt;
+
+&lt;p&gt;As it turns out, &lt;code&gt;accepts_nested_attributes_for&lt;/code&gt; is a great way to solve this problem. It must be added to each model that will be creating objects of another model within it - in this case, survey accepts nested attributes for questions and answers, and question accepts nested attributes for answers.&lt;/p&gt;
+
+&lt;p&gt;Then the magic happens. Create the correct number of new empty questions and answers in the surveys controller, create a form for survey (just survey!), add a &lt;code&gt;fields_for :questions&lt;/code&gt;, and looped under that, a &lt;code&gt;fields_for :answers&lt;/code&gt;. The numbers of questions and answers created will be rendered by the mini-forms &lt;code&gt;fields_for&lt;/code&gt; and then given ids. Since question belongs to survey, the questions table will receive the survey id, and since answer belongs to question, the answers table will receive the question id.&lt;/p&gt;
+
+&lt;p&gt;It gets better. Add &lt;code&gt;allow_destroy: true&lt;/code&gt;, and you can delete questions and answers directly within the survey form by including an option for &lt;code&gt;:_destroy&lt;/code&gt; in each &lt;code&gt;fields_for&lt;/code&gt;. Add &lt;code&gt;reject_if: :all_blank&lt;/code&gt;, and the object will not be created if the field is not filled out. Questions, since they may have empty answers within them, need only a slightly more detailed lambda stating to reject if the main question field is blank.&lt;/p&gt;
+
+&lt;div class=&quot;highlight&quot;&gt;&lt;pre&gt;&lt;code class=&quot;language-ruby&quot; data-lang=&quot;ruby&quot;&gt;&lt;span class=&quot;c1&quot;&gt;# Check out this crazy model magic&lt;/span&gt;
+
+&lt;span class=&quot;k&quot;&gt;class&lt;/span&gt; &lt;span class=&quot;nc&quot;&gt;Survey&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;&amp;lt;&lt;/span&gt; &lt;span class=&quot;no&quot;&gt;ActiveRecord&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;::&lt;/span&gt;&lt;span class=&quot;no&quot;&gt;Base&lt;/span&gt;
+  &lt;span class=&quot;n&quot;&gt;validates&lt;/span&gt; &lt;span class=&quot;ss&quot;&gt;:name&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;ss&quot;&gt;presence&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;:&lt;/span&gt; &lt;span class=&quot;kp&quot;&gt;true&lt;/span&gt;
+
+  &lt;span class=&quot;n&quot;&gt;belongs_to&lt;/span&gt; &lt;span class=&quot;ss&quot;&gt;:user&lt;/span&gt;
+  &lt;span class=&quot;n&quot;&gt;default_scope&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;{&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;order&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;nb&quot;&gt;id&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;:&lt;/span&gt; &lt;span class=&quot;ss&quot;&gt;:desc&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;)&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;}&lt;/span&gt;
+
+  &lt;span class=&quot;n&quot;&gt;has_many&lt;/span&gt; &lt;span class=&quot;ss&quot;&gt;:questions&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;ss&quot;&gt;dependent&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;:&lt;/span&gt; &lt;span class=&quot;ss&quot;&gt;:destroy&lt;/span&gt;
+  &lt;span class=&quot;n&quot;&gt;has_many&lt;/span&gt; &lt;span class=&quot;ss&quot;&gt;:answers&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;ss&quot;&gt;through&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;:&lt;/span&gt; &lt;span class=&quot;ss&quot;&gt;:questions&lt;/span&gt;
+
+  &lt;span class=&quot;n&quot;&gt;accepts_nested_attributes_for&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;
+    &lt;span class=&quot;ss&quot;&gt;:questions&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt;
+    &lt;span class=&quot;ss&quot;&gt;allow_destroy&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;:&lt;/span&gt; &lt;span class=&quot;kp&quot;&gt;true&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt;
+    &lt;span class=&quot;ss&quot;&gt;reject_if&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;:&lt;/span&gt; &lt;span class=&quot;nb&quot;&gt;lambda&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;{&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;|&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;attributes&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;|&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;attributes&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;[&lt;/span&gt;&lt;span class=&quot;s2&quot;&gt;&amp;quot;content&amp;quot;&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;].&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;blank?&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;}&lt;/span&gt;
+  &lt;span class=&quot;p&quot;&gt;)&lt;/span&gt;
+  &lt;span class=&quot;n&quot;&gt;accepts_nested_attributes_for&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;
+    &lt;span class=&quot;ss&quot;&gt;:answers&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt;
+    &lt;span class=&quot;ss&quot;&gt;allow_destroy&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;:&lt;/span&gt; &lt;span class=&quot;kp&quot;&gt;true&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt;
+    &lt;span class=&quot;ss&quot;&gt;reject_if&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;:&lt;/span&gt; &lt;span class=&quot;ss&quot;&gt;:all_blank&lt;/span&gt;
+  &lt;span class=&quot;p&quot;&gt;)&lt;/span&gt;
+&lt;span class=&quot;k&quot;&gt;end&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
+
+&lt;p&gt;Now the models and form are set, but there&amp;#39;s still a bit more work to be done. The survey params now contain &lt;em&gt;everything&lt;/em&gt;: &lt;code&gt;:name, questions_attributes: [:content, :_destroy, answers_attributes: [:choice, :_destroy]]&lt;/code&gt;. And since the form creates ids for questions and answers, it will continue creating new ids each time you try to edit unless you specifically pull in the ids for questions and answers through the params in the surveys controller.&lt;/p&gt;
+
+&lt;p&gt;And that&amp;#39;s the first half of your formception. Here, Rails has it all set up for you.&lt;/p&gt;
+</content>
+ </entry>
  
  <entry>
    <title>Changeability and Design</title>
