@@ -24,7 +24,7 @@
 .kp { color: #35007B; } /* Keyword.Pseudo */
 .kr { color: #35007B; } /* Keyword.Reserved */
 .kt { color: #007788; } /* Keyword.Type */
-.m { color: #FF6600; } /* Literal.Number */
+.m { color: #8C234A; } /* Literal.Number */
 .s { color: #d44950; } /* Literal.String */
 .na { color: #4f9fcf; } /* Name.Attribute */
 .nb { color: #65006C; } /* Name.Builtin */
@@ -40,26 +40,26 @@
 .nv { color: #003333; } /* Name.Variable */
 .ow { color: #000000; } /* Operator.Word */
 .w { color: #bbbbbb; } /* Text.Whitespace */
-.mf { color: #FF6600; } /* Literal.Number.Float */
-.mh { color: #FF6600; } /* Literal.Number.Hex */
-.mi { color: #FF6600; } /* Literal.Number.Integer */
-.mo { color: #FF6600; } /* Literal.Number.Oct */
-.sb { color: #08A741; } /* Literal.String.Backtick */
-.sc { color: #08A741; } /* Literal.String.Char */
-.sd { color: #08A741; font-style: italic } /* Literal.String.Doc */
-.s2 { color: #08A741; } /* Literal.String.Double */
-.se { color: #08A741; } /* Literal.String.Escape */
-.sh { color: #08A741; } /* Literal.String.Heredoc */
-.si { color: #08A741; } /* Literal.String.Interpol */
-.sx { color: #08A741; } /* Literal.String.Other */
+.mf { color: #8C234A; } /* Literal.Number.Float */
+.mh { color: #8C234A; } /* Literal.Number.Hex */
+.mi { color: #8C234A; } /* Literal.Number.Integer */
+.mo { color: #8C234A; } /* Literal.Number.Oct */
+.sb { color: #48038C; } /* Literal.String.Backtick */
+.sc { color: #48038C; } /* Literal.String.Char */
+.sd { color: #48038C; font-style: italic } /* Literal.String.Doc */
+.s2 { color: #48038C; } /* Literal.String.Double */
+.se { color: #48038C; } /* Literal.String.Escape */
+.sh { color: #48038C; } /* Literal.String.Heredoc */
+.si { color: #48038C; } /* Literal.String.Interpol */
+.sx { color: #48038C; } /* Literal.String.Other */
 .sr { color: #33AAAA; } /* Literal.String.Regex */
-.s1 { color: #08A741; } /* Literal.String.Single */
+.s1 { color: #48038C; } /* Literal.String.Single */
 .ss { color: #00A79A; } /* Literal.String.Symbol */
 .bp { color: #336666; } /* Name.Builtin.Pseudo */
 .vc { color: #003333; } /* Name.Variable.Class */
 .vg { color: #003333; } /* Name.Variable.Global */
 .vi { color: #003333; } /* Name.Variable.Instance */
-.il { color: #FF6600; } /* Literal.Number.Integer.Long */
+.il { color: #8C234A; } /* Literal.Number.Integer.Long */
 
 .css .o,
 .css .o + .nt,
