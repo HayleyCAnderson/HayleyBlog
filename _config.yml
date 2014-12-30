@@ -8,8 +8,8 @@ relative_permalinks: true
 
 # Setup
 title: Hayley Anderson
-tagline: "Learning Ruby and Loving New York"
-description: "Hi, I'm a Ruby on Rails student at Metis in New York City. This is my blog about what I'm learning."
+tagline: "Ruby developer based in New York City"
+description: "I'm a Ruby developer based in New York City, and this is my attempt at blogging."
 url: http://blog.hayleyanderson.us
 baseurl: /
 
