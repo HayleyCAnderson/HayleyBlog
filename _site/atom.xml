@@ -4,13 +4,133 @@
  <title>Hayley Anderson</title>
  <link href="http://blog.hayleyanderson.us/atom.xml" rel="self"/>
  <link href="http://blog.hayleyanderson.us/"/>
- <updated>2015-04-06T14:23:04-04:00</updated>
+ <updated>2015-04-22T18:56:11-04:00</updated>
  <id>http://blog.hayleyanderson.us/</id>
  <author>
    <name>Hayley Anderson</name>
    <email>hayleyanderson@zoho.com</email>
  </author>
 
+ 
+ <entry>
+   <title>So You Need to Make a Static Website with Repetition and Logic</title>
+   <link href="http://blog.hayleyanderson.us/2015/04/22/so-you-need-to-make-a-static-website-with-repetition-and-logic/"/>
+   <updated>2015-04-22T00:00:00-04:00</updated>
+   <id>http://blog.hayleyanderson.us/2015/04/22/so-you-need-to-make-a-static-website-with-repetition-and-logic</id>
+   <content type="html">&lt;h1&gt;Or When and How to Use Middleman&lt;/h1&gt;
+
+&lt;p&gt;Maybe you&amp;#39;ve made static websites, maybe you&amp;#39;ve made Rails applications, but what
+happens if you need to make something that&amp;#39;s in between? It&amp;#39;s not a dynamic
+application, but it will require repetitive code, use logic, or
+change frequently enough to make changing the code by hand a pain.
+&lt;strong&gt;The solution? Possibly
+&lt;a href=&quot;https://middlemanapp.com&quot;&gt;Middleman&lt;/a&gt;&lt;/strong&gt;.&lt;/p&gt;
+
+&lt;p&gt;Middleman is a Ruby-based static
+site generator that&amp;#39;s reminiscent of Rails and keeps its opinions mostly to
+itself. Static site generators can handle logic and cut repetition, but they
+build into static pages that are much faster and easier to host than
+applications.&lt;/p&gt;
+
+&lt;p&gt;There are many other well-known options,
+such as Octopress and Jekyll (which this blog is on), but most are intended primarily for
+developer blogs. It&amp;#39;s certainly possible to use most such generators for more,
+but their main purpose tends to be overly clear.&lt;/p&gt;
+
+&lt;p&gt;Middleman is more of a blank slate, at least to a Rails developer. It feels
+like using a lightweight version of Rails, complete with access
+to many of the basic helper methods available in Rails. It comes with built-in support
+for ERb, Haml, Sass, SCSS, and CoffeeScript.&lt;/p&gt;
+
+&lt;p&gt;Most importantly, Middleman makes it easy to add data and helpers. Data files allow you to
+add data or content using YAML or JSON. This data can then be accessed from the
+views and/or config file. Meanwhile, helper methods in the
+config file or in separate modules can perform logic in Ruby that can be used in
+the views.&lt;/p&gt;
+
+&lt;h2&gt;Use Data, Variables, and Proxies&lt;/h2&gt;
+
+&lt;p&gt;With Middleman, you can generate repetitive pages based on
+&lt;a href=&quot;https://middlemanapp.com/advanced/data_files/&quot;&gt;JSON data&lt;/a&gt; by adding a
+proxy to the &lt;code&gt;config.rb&lt;/code&gt; file:&lt;/p&gt;
+
+&lt;div class=&quot;highlight&quot;&gt;&lt;pre&gt;&lt;code class=&quot;language-ruby&quot; data-lang=&quot;ruby&quot;&gt;&lt;span class=&quot;c1&quot;&gt;# Creates person_page for each person&lt;/span&gt;
+&lt;span class=&quot;n&quot;&gt;data&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;company&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;people&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;each&lt;/span&gt; &lt;span class=&quot;k&quot;&gt;do&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;|&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;person&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;|&lt;/span&gt;
+  &lt;span class=&quot;n&quot;&gt;proxy&lt;/span&gt; &lt;span class=&quot;s2&quot;&gt;&amp;quot;/&lt;/span&gt;&lt;span class=&quot;si&quot;&gt;#{&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;person&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;id&lt;/span&gt;&lt;span class=&quot;si&quot;&gt;}&lt;/span&gt;&lt;span class=&quot;s2&quot;&gt;.html&amp;quot;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;s2&quot;&gt;&amp;quot;/person_page.html&amp;quot;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;ss&quot;&gt;locals&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;:&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;{&lt;/span&gt;
+    &lt;span class=&quot;nb&quot;&gt;id&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;:&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;person&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;id&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt;
+    &lt;span class=&quot;nb&quot;&gt;name&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;:&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;person&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;name&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt;
+    &lt;span class=&quot;ss&quot;&gt;photo&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;:&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;person&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;photo&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt;
+    &lt;span class=&quot;ss&quot;&gt;bio&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;:&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;person&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;bio&lt;/span&gt;
+  &lt;span class=&quot;p&quot;&gt;}&lt;/span&gt;
+&lt;span class=&quot;k&quot;&gt;end&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
+
+&lt;p&gt;Then in &lt;code&gt;person_page.html.erb&lt;/code&gt;, you can take advantage of the locals provided by
+the proxy:&lt;/p&gt;
+
+&lt;div class=&quot;highlight&quot;&gt;&lt;pre&gt;&lt;code class=&quot;language-erb&quot; data-lang=&quot;erb&quot;&gt;&lt;span class=&quot;x&quot;&gt;&amp;lt;div id=&amp;quot;person-info&amp;quot;&amp;gt;&lt;/span&gt;
+&lt;span class=&quot;x&quot;&gt;  &amp;lt;h1&amp;gt;&lt;/span&gt;&lt;span class=&quot;cp&quot;&gt;&amp;lt;%=&lt;/span&gt; &lt;span class=&quot;nb&quot;&gt;name&lt;/span&gt; &lt;span class=&quot;cp&quot;&gt;%&amp;gt;&lt;/span&gt;&lt;span class=&quot;x&quot;&gt;&amp;lt;/h1&amp;gt;&lt;/span&gt;
+
+&lt;span class=&quot;x&quot;&gt;  &lt;/span&gt;&lt;span class=&quot;cp&quot;&gt;&amp;lt;%=&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;image_tag&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;s2&quot;&gt;&amp;quot;images/&lt;/span&gt;&lt;span class=&quot;si&quot;&gt;#{&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;photo&lt;/span&gt;&lt;span class=&quot;si&quot;&gt;}&lt;/span&gt;&lt;span class=&quot;s2&quot;&gt;&amp;quot;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;)&lt;/span&gt; &lt;span class=&quot;cp&quot;&gt;%&amp;gt;&lt;/span&gt;&lt;span class=&quot;x&quot;&gt;&lt;/span&gt;
+
+&lt;span class=&quot;x&quot;&gt;  &amp;lt;h2&amp;gt;Bio&amp;lt;/h2&amp;gt;&lt;/span&gt;
+&lt;span class=&quot;x&quot;&gt;  &lt;/span&gt;&lt;span class=&quot;cp&quot;&gt;&amp;lt;%=&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;bio&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;html_safe&lt;/span&gt; &lt;span class=&quot;cp&quot;&gt;%&amp;gt;&lt;/span&gt;&lt;span class=&quot;x&quot;&gt;&lt;/span&gt;
+&lt;span class=&quot;x&quot;&gt;&amp;lt;/div&amp;gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
+
+&lt;p&gt;No matter how many people you have or edits you make, you only need to change
+&lt;code&gt;person_page.html.erb&lt;/code&gt; or the corresponding JSON, but when you create the build,
+a file will be generated for each person, named using their id, with their name,
+photo, and bio filled in.&lt;/p&gt;
+
+&lt;h2&gt;Perform Logic in Helpers&lt;/h2&gt;
+
+&lt;p&gt;Adding links to each page to allow someone to continuously flip through a set of
+people pages requires a bit of logic, which is where being able to add helpers
+to the config file is incredibly important.&lt;/p&gt;
+
+&lt;div class=&quot;highlight&quot;&gt;&lt;pre&gt;&lt;code class=&quot;language-ruby&quot; data-lang=&quot;ruby&quot;&gt;&lt;span class=&quot;n&quot;&gt;helpers&lt;/span&gt; &lt;span class=&quot;k&quot;&gt;do&lt;/span&gt;
+  &lt;span class=&quot;c1&quot;&gt;# Links back button to previous person&lt;/span&gt;
+  &lt;span class=&quot;k&quot;&gt;def&lt;/span&gt; &lt;span class=&quot;nf&quot;&gt;previous_id&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;current_id&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;)&lt;/span&gt;
+    &lt;span class=&quot;k&quot;&gt;if&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;current_id&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;==&lt;/span&gt; &lt;span class=&quot;mi&quot;&gt;1&lt;/span&gt;
+      &lt;span class=&quot;n&quot;&gt;data&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;company&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;people&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;length&lt;/span&gt;
+    &lt;span class=&quot;k&quot;&gt;else&lt;/span&gt;
+      &lt;span class=&quot;n&quot;&gt;current_id&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;-&lt;/span&gt; &lt;span class=&quot;mi&quot;&gt;1&lt;/span&gt;
+    &lt;span class=&quot;k&quot;&gt;end&lt;/span&gt;
+  &lt;span class=&quot;k&quot;&gt;end&lt;/span&gt;
+
+  &lt;span class=&quot;c1&quot;&gt;# Links next button to next person&lt;/span&gt;
+  &lt;span class=&quot;k&quot;&gt;def&lt;/span&gt; &lt;span class=&quot;nf&quot;&gt;next_id&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;current_id&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;)&lt;/span&gt;
+    &lt;span class=&quot;k&quot;&gt;if&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;current_id&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;==&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;data&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;company&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;people&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;length&lt;/span&gt;
+      &lt;span class=&quot;mi&quot;&gt;1&lt;/span&gt;
+    &lt;span class=&quot;k&quot;&gt;else&lt;/span&gt;
+      &lt;span class=&quot;n&quot;&gt;current_id&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;+&lt;/span&gt; &lt;span class=&quot;mi&quot;&gt;1&lt;/span&gt;
+    &lt;span class=&quot;k&quot;&gt;end&lt;/span&gt;
+  &lt;span class=&quot;k&quot;&gt;end&lt;/span&gt;
+&lt;span class=&quot;k&quot;&gt;end&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
+
+&lt;h2&gt;But Beware&lt;/h2&gt;
+
+&lt;p&gt;Middleman is not
+automatically set up for relative linking, and if you&amp;#39;re not prepared for that,
+you&amp;#39;ll be in for a rude surprise when you make your build and find yourself without
+styling, images, or linking between pages.&lt;/p&gt;
+
+&lt;p&gt;To allow relative links pointing to
+assets - stylesheets, javascripts, images, etc. -
+add &lt;code&gt;activate :relative_assets&lt;/code&gt; to the build configuration in the
+config file. To enable relative linking elsewhere, add &lt;code&gt;set :relative_links,
+true&lt;/code&gt; to the config file (outside the build configuration). Also, you&amp;#39;ll
+need to use &lt;code&gt;link_to&lt;/code&gt; helpers instead of just &lt;code&gt;a href&lt;/code&gt;.&lt;/p&gt;
+
+&lt;p&gt;Although it seems a bit odd to have &lt;code&gt;link_to&lt;/code&gt; but not relative linking,
+Middleman is pretty generous with the helper methods. Make sure to
+check out the &lt;a href=&quot;https://middlemanapp.com/basics/helper_methods/&quot;&gt;full list&lt;/a&gt;
+because you may be surprised by what&amp;#39;s available.&lt;/p&gt;
+
+&lt;p&gt;And if you need something more, Middleman seems like the type of framework where
+the sky is the limit. At least as long as you&amp;#39;re still just looking for a static site
+generator.&lt;/p&gt;
+</content>
+ </entry>
  
  <entry>
    <title>Sometimes It's Not Your Fault</title>
