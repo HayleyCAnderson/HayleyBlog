@@ -4,13 +4,128 @@
  <title>Hayley Anderson</title>
  <link href="http://blog.hayleyanderson.us/atom.xml" rel="self"/>
  <link href="http://blog.hayleyanderson.us/"/>
- <updated>2015-04-22T18:56:11-04:00</updated>
+ <updated>2015-05-09T14:09:02-04:00</updated>
  <id>http://blog.hayleyanderson.us/</id>
  <author>
    <name>Hayley Anderson</name>
    <email>hayleyanderson@zoho.com</email>
  </author>
 
+ 
+ <entry>
+   <title>Teaching Yourself How to Code - A Bunch of Beginner Coding Resources</title>
+   <link href="http://blog.hayleyanderson.us/2015/05/09/teaching-yourself-how-to-code-a-bunch-of-beginner-coding-resources/"/>
+   <updated>2015-05-09T00:00:00-04:00</updated>
+   <id>http://blog.hayleyanderson.us/2015/05/09/teaching-yourself-how-to-code-a-bunch-of-beginner-coding-resources</id>
+   <content type="html">&lt;p&gt;I love giving people resources for learning how to code, so I thought I should
+probably just make a blog post about it. I was especially inspired by &lt;a href=&quot;http://nerdneha.tumblr.com/post/115890208985/teaching-myself-to-code&quot;&gt;Neha&amp;#39;s
+talk&lt;/a&gt;
+on teaching yourself how to code. Her talk was 1000% accurate, but I used and
+recommend totally different resources. These are just some of the resources I
+used, but they&amp;#39;re the ones I see as impacting my coding journey the most.&lt;/p&gt;
+
+&lt;h3&gt;Front End&lt;/h3&gt;
+
+&lt;p&gt;Front end and back end are totally different, and you really don&amp;#39;t need to know
+both - most people do one or the other - but if you&amp;#39;re just getting started and
+don&amp;#39;t know what&amp;#39;s what, learning HTML and CSS is a great way to dive in and see
+what coding is all about.&lt;/p&gt;
+
+&lt;p&gt;&lt;a href=&quot;https://dash.generalassemb.ly&quot;&gt;General Assembly Dash&lt;/a&gt; - In my opinion, the one
+and only beginner HTML/CSS tutorial. It will handhold you through just starting
+to code but also gives enough freedom to let you learn instead of just parroting
+back code. It also helps you see the bigger picture of how code can be used in
+the real world.&lt;/p&gt;
+
+&lt;p&gt;&lt;a href=&quot;https://hackdesign.org&quot;&gt;Hack Design&lt;/a&gt; - For when you&amp;#39;ve made a couple really
+ugly things in Dash and don&amp;#39;t know where to go from here. Hack Design provides
+context, history, and design basics that everyone should be aware of.&lt;/p&gt;
+
+&lt;p&gt;&lt;a href=&quot;http://learn.shayhowe.com/html-css/&quot;&gt;Learn to Code HTML &amp;amp; CSS&lt;/a&gt; - Dash teaches
+you how to get started with code, but it doesn&amp;#39;t necessarily teach good code or
+complex code. Learn to Code HTML &amp;amp; CSS teaches you how to code properly and how
+to expand beyond the basics.&lt;/p&gt;
+
+&lt;h3&gt;Back End&lt;/h3&gt;
+
+&lt;p&gt;I think that Ruby and Python are by far the best beginner coding languages. I&amp;#39;d
+suggest only starting with JavaScript if you know that you want to do front end
+and only front end, or with something else if you have an in-person class in
+that language available to you. I also think that back end is much harder
+to learn on your own than front end - which is not to say that front end is
+easy to do, just easier to get started with.&lt;/p&gt;
+
+&lt;p&gt;&lt;a href=&quot;http://tryruby.org&quot;&gt;Try Ruby&lt;/a&gt; - Start learning programming in the
+browser, in a totally adorable way.&lt;/p&gt;
+
+&lt;p&gt;&lt;a href=&quot;https://pine.fm/LearnToProgram/&quot;&gt;Learn to Program&lt;/a&gt; - This is a great book for
+teaching the basics of Ruby, and programming in general. But it&amp;#39;s important that
+you actually do the exercises, no matter how annoying.&lt;/p&gt;
+
+&lt;p&gt;&lt;a href=&quot;http://interactivepython.org/runestone/static/pythonds/index.html&quot;&gt;Problem Solving with Algorithms and Data Structures&lt;/a&gt; -
+Employers are obsessed with algorithms and data structures, so
+best learn some basics. This book uses Python, but Python is quite accessible
+coming from Ruby. This website also has other books involving Python, Java, and
+general computer science, if you&amp;#39;d rather go in one of those directions.&lt;/p&gt;
+
+&lt;h3&gt;Version Control&lt;/h3&gt;
+
+&lt;p&gt;Once you&amp;#39;ve been coding for a while, version control fades into the background,
+but when you&amp;#39;re first starting, it&amp;#39;s one of the more surprising and intimidating
+things you have to learn. Version control means more than just git (which is
+part of why some tutorials are so confusing - they&amp;#39;re meant for people
+transitioning to git from other types of version control), but these days git is
+the thing to know. And you&amp;#39;re probably going to need to know how to use it in
+order to get your work online.&lt;/p&gt;
+
+&lt;p&gt;&lt;a href=&quot;/2014/10/03/github-and-the-magical-black-hole-of-version-control&quot;&gt;Github and the Magical Black Hole of Version Control&lt;/a&gt; -
+This is a blog post that I wrote a long time ago because I don&amp;#39;t think the
+beginner git resources sufficiently explain what git is and why you&amp;#39;re using the
+commands they say to use.&lt;/p&gt;
+
+&lt;p&gt;&lt;a href=&quot;https://try.github.io&quot;&gt;Try Git&lt;/a&gt; - This is a cute tutorial that teaches you the
+basic commands you need to know to use git.&lt;/p&gt;
+
+&lt;p&gt;&lt;a href=&quot;https://www.atlassian.com/git/tutorials/&quot;&gt;Atlassian Tutorials&lt;/a&gt; - Once you have
+some understanding of git, Atlassian&amp;#39;s tutorials are great for explaining the
+variety of commands in more detail.&lt;/p&gt;
+
+&lt;h3&gt;Going Live&lt;/h3&gt;
+
+&lt;p&gt;So you&amp;#39;ve made a thing, but nobody really tells you how to actually put it
+online. It&amp;#39;s pretty important, since that&amp;#39;s sort of the point. Sometimes it&amp;#39;s
+the hardest part, but it&amp;#39;s a lot easier if you&amp;#39;ve done your studying on git first.&lt;/p&gt;
+
+&lt;p&gt;&lt;a href=&quot;http://www.jonhmchan.com/blog/2014/4/28/finally-a-guide-to-hosting-your-website&quot;&gt;Finally, a Guide to Hosting Your Website&lt;/a&gt; -
+The title pretty much says it all, and the post itself says the rest. I didn&amp;#39;t
+know git when I tried to follow this tutorial, and it was pretty painful, but
+I&amp;#39;m glad I did it because the learning value was huge.&lt;/p&gt;
+
+&lt;p&gt;&lt;a href=&quot;https://devcenter.heroku.com/start&quot;&gt;Getting Started on Heroku&lt;/a&gt; - If you made an
+application with a back end instead of just a static front end site, congrats,
+and Heroku is the place to start if you want to get your application online.&lt;/p&gt;
+
+&lt;h3&gt;Culture&lt;/h3&gt;
+
+&lt;p&gt;What is everyone in tech always talking about anyway? Being able to understand
+the culture and follow along with conversations is incredibly important and will
+make it so much easier to make connections, keep learning, and gain confidence.&lt;/p&gt;
+
+&lt;p&gt;&lt;a href=&quot;http://www.hackernewsletter.com&quot;&gt;Hacker Newsletter&lt;/a&gt; - A random amalgamation of
+what&amp;#39;s going on in tech culture, some of it educational, some not so much.&lt;/p&gt;
+
+&lt;p&gt;&lt;a href=&quot;http://www.meetup.com&quot;&gt;Meetup.com&lt;/a&gt; - Seriously, go to meetups. If someone as shy as
+me can go to meetups, you can go to meetups. Contrary to popular belief among
+beginners, the vast majority of meetups are beginner-friendly, even
+beginner-dominated, &lt;em&gt;especially&lt;/em&gt; hack nights and classes. Just go, and keep
+going. It will make a difference in the long run.&lt;/p&gt;
+
+&lt;p&gt;So those are my top recommendations for teaching yourself how to code, but
+there are a million more resources out there, and I&amp;#39;m pretty sure I have
+bookmarks for a significant percentage of them (it&amp;#39;s a bit of a problem). I hope
+this can help someone, and feel free to contact me to get some more of those bookmarks.&lt;/p&gt;
+</content>
+ </entry>
  
  <entry>
    <title>So You Need to Make a Static Website with Repetition and Logic</title>
