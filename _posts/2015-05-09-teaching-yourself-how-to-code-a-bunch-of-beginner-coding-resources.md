@@ -110,3 +110,6 @@ So those are my top recommendations for teaching yourself how to code, but
 there are a million more resources out there, and I'm pretty sure I have
 bookmarks for a significant percentage of them (it's a bit of a problem). I hope
 this can help someone, and feel free to contact me to get some more of those bookmarks.
+
+And check out the follow-up:
+[Even More Beginner (And Intermediate) Coding Resources](/2015/05/28/even-more-beginner-and-intermediate-coding-resources)

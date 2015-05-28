@@ -4,13 +4,70 @@
  <title>Hayley Anderson</title>
  <link href="http://blog.hayleyanderson.us/atom.xml" rel="self"/>
  <link href="http://blog.hayleyanderson.us/"/>
- <updated>2015-05-09T14:09:02-04:00</updated>
+ <updated>2015-05-28T18:18:46-04:00</updated>
  <id>http://blog.hayleyanderson.us/</id>
  <author>
    <name>Hayley Anderson</name>
    <email>hayleyanderson@zoho.com</email>
  </author>
 
+ 
+ <entry>
+   <title>Even More Beginner (And Intermediate) Coding Resources</title>
+   <link href="http://blog.hayleyanderson.us/2015/05/28/even-more-beginner-and-intermediate-coding-resources/"/>
+   <updated>2015-05-28T00:00:00-04:00</updated>
+   <id>http://blog.hayleyanderson.us/2015/05/28/even-more-beginner-and-intermediate-coding-resources</id>
+   <content type="html">&lt;p&gt;I decided to make a follow-up to my
+&lt;a href=&quot;/2015/05/09/teaching-yourself-how-to-code-a-bunch-of-beginner-coding-resources&quot;&gt;previous post&lt;/a&gt;
+on coding resources because I had a bunch of other resources I wanted to share,
+especially some that are beyond the beginner level.&lt;/p&gt;
+
+&lt;h3&gt;Technology&lt;/h3&gt;
+
+&lt;p&gt;&lt;a href=&quot;http://learnpythonthehardway.org/book/index.html&quot;&gt;Learn Python the Hard Way&lt;/a&gt; -
+I just skipped through this book to learn Python syntax, and it looked like it
+did a really good job of explaining the basics and covering a lot of material.
+There are also other technologies covered in this family of books.&lt;/p&gt;
+
+&lt;p&gt;&lt;a href=&quot;https://rubymonk.com&quot;&gt;Ruby Monk&lt;/a&gt; - I never got a chance to try this out
+because I started at Metis before I had the time, but I&amp;#39;ve heard it recommended
+before and my friend &lt;a href=&quot;https://twitter.com/monkeypatchr&quot;&gt;Eli&lt;/a&gt; suggested I add this
+as a resource for learning Ruby.&lt;/p&gt;
+
+&lt;p&gt;&lt;a href=&quot;http://hyperpolyglot.org&quot;&gt;Hyperpolyglot&lt;/a&gt; - This awesome site shows
+primary differences between programming languages, which could be very helpful
+for comparison or reference.&lt;/p&gt;
+
+&lt;p&gt;&lt;a href=&quot;http://overthewire.org/wargames/&quot;&gt;OverTheWire&lt;/a&gt; - OverTheWire has a series of
+games that teach web and systems security. It&amp;#39;s not just useful for learning
+about security though - I&amp;#39;ve found it very helpful in gaining a deeper
+understanding of how web sites and systems work.&lt;/p&gt;
+
+&lt;h3&gt;Life as a Developer&lt;/h3&gt;
+
+&lt;p&gt;&lt;a href=&quot;http://www.vikingcodeschool.com/posts/why-learning-to-code-is-so-damn-hard&quot;&gt;Why Learning to Code is So Damn Hard&lt;/a&gt; -
+If you&amp;#39;ve finished the tutorials from my earlier post or are at a comparable
+level, you&amp;#39;re probably about at the point where coding starts to really suck.
+This blog post explains how this is actually normal, and it gets better.&lt;/p&gt;
+
+&lt;p&gt;&lt;a href=&quot;http://www.codenewbie.org/podcast&quot;&gt;CodeNewbie Podcast&lt;/a&gt; - CodeNewbie offers all
+kinds of great resources, but I especially love the podcasts, which are
+accessible, educational, and fun to listen to at any level.&lt;/p&gt;
+
+&lt;p&gt;&lt;a href=&quot;https://modelviewculture.com/issues/programming&quot;&gt;Model View Culture: Programming&lt;/a&gt; -
+Model View Culture is a magazine that offers various thought-provoking social
+and political perspectives on the field of tech. I think that the programming
+issue in particular is a must-read for anyone entering or in tech.&lt;/p&gt;
+
+&lt;p&gt;&lt;a href=&quot;https://youtu.be/v0TFmdO4ZP0&quot;&gt;Intermediate Developers by Angelina Fabbro&lt;/a&gt; -
+It doesn&amp;#39;t get perfect after you get past the hardest stretches mentioned in
+&amp;#39;Why Learning to Code is So Damn Hard&amp;#39;, and that&amp;#39;s when Angelina Fabbro&amp;#39;s talk
+on being an intermediate developer is important to hear.&lt;/p&gt;
+
+&lt;p&gt;I&amp;#39;ve found all these resources to be incredibly helpful, especially later in my
+coding journey, so I hope that others will find them useful as well!&lt;/p&gt;
+</content>
+ </entry>
  
  <entry>
    <title>Teaching Yourself How to Code - A Bunch of Beginner Coding Resources</title>
@@ -124,6 +181,9 @@ going. It will make a difference in the long run.&lt;/p&gt;
 there are a million more resources out there, and I&amp;#39;m pretty sure I have
 bookmarks for a significant percentage of them (it&amp;#39;s a bit of a problem). I hope
 this can help someone, and feel free to contact me to get some more of those bookmarks.&lt;/p&gt;
+
+&lt;p&gt;And check out the follow-up:
+&lt;a href=&quot;/2015/05/28/even-more-beginner-and-intermediate-coding-resources&quot;&gt;Even More Beginner (And Intermediate) Coding Resources&lt;/a&gt;&lt;/p&gt;
 </content>
  </entry>
  
