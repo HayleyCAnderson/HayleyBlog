@@ -4,14 +4,14 @@
  <title>Hayley Anderson</title>
  <link href="http://blog.hayleyanderson.us/atom.xml" rel="self"/>
  <link href="http://blog.hayleyanderson.us/"/>
- <updated>2015-06-05T12:49:07-04:00</updated>
+ <updated>2015-06-15T12:46:27-04:00</updated>
  <id>http://blog.hayleyanderson.us/</id>
  <author>
    <name>Hayley Anderson</name>
    <email>hayleyanderson@zoho.com</email>
  </author>
 
- 
+
  <entry>
    <title>Using (and Testing) Rack::Attack to Improve the Security of Your Rails App</title>
    <link href="http://blog.hayleyanderson.us/2015/06/05/using-and-testing-rack-attack-to-improve-the-security-of-your-rails-app/"/>
@@ -238,7 +238,7 @@ your Rails applications, I encourage you to definitely check out Rack::Attack,
 and to also try testing it using Rack::Test!&lt;/p&gt;
 </content>
  </entry>
- 
+
  <entry>
    <title>Even More Beginner (And Intermediate) Coding Resources</title>
    <link href="http://blog.hayleyanderson.us/2015/05/28/even-more-beginner-and-intermediate-coding-resources/"/>
@@ -295,7 +295,7 @@ on being an intermediate developer is important to hear.&lt;/p&gt;
 coding journey, so I hope that others will find them useful as well!&lt;/p&gt;
 </content>
  </entry>
- 
+
  <entry>
    <title>Teaching Yourself How to Code - A Bunch of Beginner Coding Resources</title>
    <link href="http://blog.hayleyanderson.us/2015/05/09/teaching-yourself-how-to-code-a-bunch-of-beginner-coding-resources/"/>
@@ -413,7 +413,7 @@ this can help someone, and feel free to contact me to get some more of those boo
 &lt;a href=&quot;/2015/05/28/even-more-beginner-and-intermediate-coding-resources&quot;&gt;Even More Beginner (And Intermediate) Coding Resources&lt;/a&gt;&lt;/p&gt;
 </content>
  </entry>
- 
+
  <entry>
    <title>So You Need to Make a Static Website with Repetition and Logic</title>
    <link href="http://blog.hayleyanderson.us/2015/04/22/so-you-need-to-make-a-static-website-with-repetition-and-logic/"/>
@@ -533,7 +533,7 @@ the sky is the limit. At least as long as you&amp;#39;re still just looking for 
 generator.&lt;/p&gt;
 </content>
  </entry>
- 
+
  <entry>
    <title>Sometimes It's Not Your Fault</title>
    <link href="http://blog.hayleyanderson.us/2015/04/06/sometimes-its-not-your-fault/"/>
@@ -595,7 +595,7 @@ frameworks seem so advanced and untouchable, they&amp;#39;re all created by huma
 Sometimes, it really isn&amp;#39;t your fault.&lt;/p&gt;
 </content>
  </entry>
- 
+
  <entry>
    <title>Parsing JSON and Passing Data Into a Table</title>
    <link href="http://blog.hayleyanderson.us/2014/12/30/parsing-json-and-passing-data-into-a-table/"/>
@@ -679,7 +679,7 @@ Sometimes, it really isn&amp;#39;t your fault.&lt;/p&gt;
 &lt;p&gt;So I&amp;#39;ve taken JSON returned from a query to the SODA API, parsed it, entered it into a database, and geocoded it, and can run a query to get back relevant, useful data points from my database. Next time, I&amp;#39;ll go over creating functional GeoJSON from these data points.&lt;/p&gt;
 </content>
  </entry>
- 
+
  <entry>
    <title>Using the Socrata Open Data API and Gem to Make Complex Queries</title>
    <link href="http://blog.hayleyanderson.us/2014/12/24/using-the-socrata-open-data-api-and-gem-to-make-complex-queries/"/>
@@ -804,7 +804,7 @@ Sometimes, it really isn&amp;#39;t your fault.&lt;/p&gt;
 &lt;p&gt;Next, I&amp;#39;ll cover the data this query returns and how I clean and store it.&lt;/p&gt;
 </content>
  </entry>
- 
+
  <entry>
    <title>Formception</title>
    <link href="http://blog.hayleyanderson.us/2014/11/27/formception/"/>
@@ -850,7 +850,7 @@ Sometimes, it really isn&amp;#39;t your fault.&lt;/p&gt;
 &lt;p&gt;And that&amp;#39;s the first half of your formception. Here, Rails has it all set up for you.&lt;/p&gt;
 </content>
  </entry>
- 
+
  <entry>
    <title>Changeability and Design</title>
    <link href="http://blog.hayleyanderson.us/2014/11/09/changeability-and-design/"/>
@@ -872,7 +872,7 @@ Sometimes, it really isn&amp;#39;t your fault.&lt;/p&gt;
 * &lt;a href=&quot;http://robots.thoughtbot.com/using-polymorphism-to-make-a-better-activity-feed-in-rails&quot;&gt;Using Polymorphism to Make a Better Activity Feed in Rails&lt;/a&gt;&lt;/p&gt;
 </content>
  </entry>
- 
+
  <entry>
    <title>Strings and Arrays and Linked Lists, Oh My!</title>
    <link href="http://blog.hayleyanderson.us/2014/10/25/strings-and-arrays-and-linked-lists-oh-my/"/>
@@ -893,7 +893,7 @@ Sometimes, it really isn&amp;#39;t your fault.&lt;/p&gt;
 &lt;p&gt;I&amp;#39;m still learning how to actually write algorithms, but last night I was able to watch a practice technical interview through &lt;a href=&quot;https://www.facebook.com/groups/LadiesStormHackathons/&quot;&gt;Ladies Storm Hackathons&lt;/a&gt;, which helped a lot in elucidating the mysterious coding interview. With some more practice, I hope to catch up with some of the computer science knowledge I&amp;#39;ve missed in time to do well in coding interviews.&lt;/p&gt;
 </content>
  </entry>
- 
+
  <entry>
    <title>Running on Rails</title>
    <link href="http://blog.hayleyanderson.us/2014/10/19/running-on-rails/"/>
@@ -927,7 +927,7 @@ start working on bigger and more complex Rails applications, and writing about
 some of the more interesting things that Ruby and/or Rails can do.&lt;/p&gt;
 </content>
  </entry>
- 
+
  <entry>
    <title>Github and the Magical Black Hole of Version Control</title>
    <link href="http://blog.hayleyanderson.us/2014/10/03/github-and-the-magical-black-hole-of-version-control/"/>
@@ -958,7 +958,7 @@ some of the more interesting things that Ruby and/or Rails can do.&lt;/p&gt;
 &lt;p&gt;P.S. Save completely separate backups before attempting anything in git that you aren&amp;#39;t confident about.&lt;/p&gt;
 </content>
  </entry>
- 
+
  <entry>
    <title>Introduction to Object-Oriented Programming</title>
    <link href="http://blog.hayleyanderson.us/2014/09/26/introduction-to-object-oriented-programming/"/>
@@ -981,6 +981,6 @@ some of the more interesting things that Ruby and/or Rails can do.&lt;/p&gt;
 &lt;p&gt;I&amp;#39;m excited to have started looking at data, and I can&amp;#39;t wait for next week, when we start working with SQL, HTTP, gems, and Sinatra. I think having a less limited view of the use of code will help, and I&amp;#39;m eager to start moving towards work that has more real-life applications. Check back next week, and I&amp;#39;ll try to improve my blog game as well as my distaste for classes.&lt;/p&gt;
 </content>
  </entry>
- 
+
 
 </feed>

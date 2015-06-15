@@ -9,7 +9,7 @@ relative_permalinks: true
 # Setup
 title: Hayley Anderson
 tagline: "Ruby developer based in New York City"
-description: "I'm a Ruby developer based in New York City, and this is my attempt at blogging."
+description: "I'm a software engineer in New York City, and this is my attempt at blogging."
 url: http://blog.hayleyanderson.us
 baseurl: /
 
