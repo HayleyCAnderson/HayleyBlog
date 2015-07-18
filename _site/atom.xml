@@ -4,13 +4,128 @@
  <title>Hayley Anderson</title>
  <link href="http://blog.hayleyanderson.us/atom.xml" rel="self"/>
  <link href="http://blog.hayleyanderson.us/"/>
- <updated>2015-06-16T19:49:17-04:00</updated>
+ <updated>2015-07-19T13:32:34-04:00</updated>
  <id>http://blog.hayleyanderson.us/</id>
  <author>
    <name>Hayley Anderson</name>
    <email>hayleyanderson@zoho.com</email>
  </author>
 
+ 
+ <entry>
+   <title>Validating File Types in Django</title>
+   <link href="http://blog.hayleyanderson.us/2015/07/18/validating-file-types-in-django/"/>
+   <updated>2015-07-18T00:00:00-04:00</updated>
+   <id>http://blog.hayleyanderson.us/2015/07/18/validating-file-types-in-django</id>
+   <content type="html">&lt;p&gt;So, I recently picked up Python, and then Django, because expanding my world
+view or something. Mostly, it&amp;#39;s been awesome. And a bit of an adventure. When
+you dream up some crazy thing you&amp;#39;re trying to implement in Rails, you can
+usually just google your stream of conciousness and someone serves you up a gem
+on a silver platter and tells you exactly (more or less) how to use it. With
+Django, it&amp;#39;s just the wild, wild west out there, even when you&amp;#39;re doing something
+you&amp;#39;d think would be very simple and common. Uh, good luck!&lt;/p&gt;
+
+&lt;p&gt;Django does have a lot of great things built into it to make up for the lack of
+associated packages, and one of those things is file uploads. Put a &amp;#39;FileField&amp;#39; on
+your model, and now users can upload files to their hearts&amp;#39; content! Problem is,
+now they can happily upload some 2GB PowerPoint or &amp;#39;evil.jar&amp;#39;. You probably don&amp;#39;t
+want that. There&amp;#39;s an extension of &amp;#39;FileField&amp;#39; called &amp;#39;ImageField&amp;#39; that will solve
+all your problems if you only want users to upload images, but you&amp;#39;re on your
+own if you need something in between.&lt;/p&gt;
+
+&lt;p&gt;During my first round trying to solve this problem, the wild, wild Django
+community recommended writing a new extension of &amp;#39;FileField&amp;#39; to have the same
+functionality as &amp;#39;ImageField&amp;#39; but accepting the file types of your choice. They
+and the docs suggested reading the source code to figure out how to actually do
+this. Since I&amp;#39;m gullible, I can tell you that the source code is actually pretty
+good - but this is silly. Django actually does have validation functionality
+somewhat similar to Rails, if only those on Stack Overflow could remember it.&lt;/p&gt;
+
+&lt;p&gt;First, you&amp;#39;re probably going to want to make a new file called &amp;#39;validators.py&amp;#39; -
+but this is Django, so you do you. Then run &lt;code&gt;brew install libmagic&lt;/code&gt; (on Mac with
+Homebrew) and &lt;code&gt;pip install python-magic&lt;/code&gt;.
+&lt;a href=&quot;https://github.com/ahupp/python-magic&quot;&gt;Magic&lt;/a&gt; is going to identify your file
+types. You&amp;#39;re going to need to import that and some other modules you already
+have access to, and make a rogue method that&amp;#39;s going to become your validation:&lt;/p&gt;
+
+&lt;div class=&quot;highlight&quot;&gt;&lt;pre&gt;&lt;code class=&quot;language-python&quot; data-lang=&quot;python&quot;&gt;&lt;span class=&quot;kn&quot;&gt;import&lt;/span&gt; &lt;span class=&quot;nn&quot;&gt;os&lt;/span&gt;
+&lt;span class=&quot;kn&quot;&gt;import&lt;/span&gt; &lt;span class=&quot;nn&quot;&gt;magic&lt;/span&gt;
+&lt;span class=&quot;kn&quot;&gt;from&lt;/span&gt; &lt;span class=&quot;nn&quot;&gt;django.conf&lt;/span&gt; &lt;span class=&quot;kn&quot;&gt;import&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;settings&lt;/span&gt;
+&lt;span class=&quot;kn&quot;&gt;from&lt;/span&gt; &lt;span class=&quot;nn&quot;&gt;django.core.files.storage&lt;/span&gt; &lt;span class=&quot;kn&quot;&gt;import&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;default_storage&lt;/span&gt;
+&lt;span class=&quot;kn&quot;&gt;from&lt;/span&gt; &lt;span class=&quot;nn&quot;&gt;django.core.files.base&lt;/span&gt; &lt;span class=&quot;kn&quot;&gt;import&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;ContentFile&lt;/span&gt;
+&lt;span class=&quot;kn&quot;&gt;from&lt;/span&gt; &lt;span class=&quot;nn&quot;&gt;django.core.exceptions&lt;/span&gt; &lt;span class=&quot;kn&quot;&gt;import&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;ValidationError&lt;/span&gt;
+
+&lt;span class=&quot;k&quot;&gt;def&lt;/span&gt; &lt;span class=&quot;nf&quot;&gt;validate_file_type&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;upload&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;):&lt;/span&gt;
+    &lt;span class=&quot;o&quot;&gt;...&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
+
+&lt;p&gt;And what is the &amp;#39;upload&amp;#39; being passed into the rogue method? That&amp;#39;s going to be
+the field you&amp;#39;ve placed the validation on, in this case &amp;#39;FileField&amp;#39;. Meaning, if
+you have a model called &amp;#39;Popup&amp;#39; with a &amp;#39;FileField&amp;#39; called &amp;#39;content&amp;#39;, &amp;#39;upload&amp;#39;
+will represent &lt;code&gt;popup_instance.content&lt;/code&gt;, and you can access the uploaded file
+at &lt;code&gt;upload.file&lt;/code&gt;.&lt;/p&gt;
+
+&lt;p&gt;So you can just access the file, use Magic to check the file
+type, and be done, right? Well, no. You don&amp;#39;t even want this file uploaded on
+your server before it&amp;#39;s been validated. So before validation, the file only
+exists in memory and without an accessible path. You need to make it accessible
+to Magic first, by temporarily saving it to the server. (This likely still
+carries security risks, but that is beyond the scope of my current
+internally-hosted project.)&lt;/p&gt;
+
+&lt;p&gt;First, name your file in a tmp directory - &lt;code&gt;upload.name&lt;/code&gt; will return &lt;code&gt;./file_name&lt;/code&gt;.
+Then, read and save the file using Django&amp;#39;s &lt;code&gt;ContentFile&lt;/code&gt; and &lt;code&gt;default_storage&lt;/code&gt;.
+Finally, get the path, which will include the &lt;code&gt;MEDIA_ROOT&lt;/code&gt; from your settings
+file because of the &lt;code&gt;default_storage&lt;/code&gt; functionality.&lt;/p&gt;
+
+&lt;div class=&quot;highlight&quot;&gt;&lt;pre&gt;&lt;code class=&quot;language-python&quot; data-lang=&quot;python&quot;&gt;&lt;span class=&quot;k&quot;&gt;def&lt;/span&gt; &lt;span class=&quot;nf&quot;&gt;validate_file_type&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;upload&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;):&lt;/span&gt;
+    &lt;span class=&quot;c&quot;&gt;# Make uploaded file accessible for analysis by saving in tmp&lt;/span&gt;
+    &lt;span class=&quot;n&quot;&gt;tmp_path&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;s&quot;&gt;&amp;#39;tmp/&lt;/span&gt;&lt;span class=&quot;si&quot;&gt;%s&lt;/span&gt;&lt;span class=&quot;s&quot;&gt;&amp;#39;&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;%&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;upload&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;name&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;[&lt;/span&gt;&lt;span class=&quot;mi&quot;&gt;2&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;:]&lt;/span&gt;
+    &lt;span class=&quot;n&quot;&gt;default_storage&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;save&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;tmp_path&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;ContentFile&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;upload&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;file&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;read&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;()))&lt;/span&gt;
+    &lt;span class=&quot;n&quot;&gt;full_tmp_path&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;os&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;path&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;join&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;settings&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;MEDIA_ROOT&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;tmp_path&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;)&lt;/span&gt;
+
+    &lt;span class=&quot;o&quot;&gt;...&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
+
+&lt;p&gt;Now that you have an actual file saved somewhere and a full path that you use can
+use to point Magic to it, you can check what the file type is and then delete it
+before it can cause any problems or eat up your storage space.&lt;/p&gt;
+
+&lt;div class=&quot;highlight&quot;&gt;&lt;pre&gt;&lt;code class=&quot;language-python&quot; data-lang=&quot;python&quot;&gt;&lt;span class=&quot;k&quot;&gt;def&lt;/span&gt; &lt;span class=&quot;nf&quot;&gt;validate_file_type&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;upload&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;):&lt;/span&gt;
+    &lt;span class=&quot;o&quot;&gt;...&lt;/span&gt;
+
+    &lt;span class=&quot;c&quot;&gt;# Get MIME type of file using python-magic and then delete&lt;/span&gt;
+    &lt;span class=&quot;n&quot;&gt;file_type&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;magic&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;from_file&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;full_tmp_path&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;mime&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;=&lt;/span&gt;&lt;span class=&quot;bp&quot;&gt;True&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;)&lt;/span&gt;
+    &lt;span class=&quot;n&quot;&gt;default_storage&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;delete&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;tmp_path&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;)&lt;/span&gt;
+
+    &lt;span class=&quot;o&quot;&gt;...&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
+
+&lt;p&gt;Finally, you can check the uploaded file type against your approved file types
+and raise a validation error if it does not match. In my case, I wanted all
+image types as well as all video types supported by Chrome. These are big, ugly
+lists that I also need to access elsewhere, so I saved them as global variables
+in my settings.&lt;/p&gt;
+
+&lt;div class=&quot;highlight&quot;&gt;&lt;pre&gt;&lt;code class=&quot;language-python&quot; data-lang=&quot;python&quot;&gt;&lt;span class=&quot;k&quot;&gt;def&lt;/span&gt; &lt;span class=&quot;nf&quot;&gt;validate_file_type&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;upload&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;):&lt;/span&gt;
+    &lt;span class=&quot;o&quot;&gt;...&lt;/span&gt;
+
+    &lt;span class=&quot;c&quot;&gt;# Raise validation error if uploaded file is not an acceptable form of media&lt;/span&gt;
+    &lt;span class=&quot;k&quot;&gt;if&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;file_type&lt;/span&gt; &lt;span class=&quot;ow&quot;&gt;not&lt;/span&gt; &lt;span class=&quot;ow&quot;&gt;in&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;settings&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;IMAGE_TYPES&lt;/span&gt; &lt;span class=&quot;ow&quot;&gt;and&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;file_type&lt;/span&gt; &lt;span class=&quot;ow&quot;&gt;not&lt;/span&gt; &lt;span class=&quot;ow&quot;&gt;in&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;settings&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;VIDEO_TYPES&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;:&lt;/span&gt;
+        &lt;span class=&quot;k&quot;&gt;raise&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;ValidationError&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;s&quot;&gt;&amp;#39;File type not supported. JPEG, PNG, or MP4 recommended.&amp;#39;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;)&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
+
+&lt;p&gt;Once your validator is written, it&amp;#39;s incredibly easy to use. First import it
+in your models file - &lt;code&gt;from validators import validate_file_type&lt;/code&gt;. Then, add it
+to your FileField in your model:&lt;/p&gt;
+
+&lt;div class=&quot;highlight&quot;&gt;&lt;pre&gt;&lt;code class=&quot;language-python&quot; data-lang=&quot;python&quot;&gt;&lt;span class=&quot;k&quot;&gt;class&lt;/span&gt; &lt;span class=&quot;nc&quot;&gt;Popup&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;Hotspot&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;):&lt;/span&gt;
+    &lt;span class=&quot;o&quot;&gt;...&lt;/span&gt;
+
+    &lt;span class=&quot;n&quot;&gt;content&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;models&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;FileField&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;validators&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;=&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;[&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;validate_file_type&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;])&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
+
+&lt;p&gt;Now the specified method will be run on your FileField so that your uploaded
+files will be validated by file type. And since &amp;#39;validators&amp;#39; is a list, you could
+even make and add more! And have fun learning the internals of Django and trying
+to ignore bizarre Stack Overflow suggestions while you&amp;#39;re at it.&lt;/p&gt;
+</content>
+ </entry>
  
  <entry>
    <title>Using (and Testing) Rack::Attack to Improve the Security of Your Rails App</title>
