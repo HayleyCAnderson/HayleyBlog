@@ -4,13 +4,128 @@
  <title>Hayley Anderson</title>
  <link href="http://blog.hayleyanderson.us/atom.xml" rel="self"/>
  <link href="http://blog.hayleyanderson.us/"/>
- <updated>2015-07-19T13:32:34-04:00</updated>
+ <updated>2015-07-26T22:10:11-04:00</updated>
  <id>http://blog.hayleyanderson.us/</id>
  <author>
    <name>Hayley Anderson</name>
    <email>hayleyanderson@zoho.com</email>
  </author>
 
+ 
+ <entry>
+   <title>Passing Information Between Django Form Wizard Steps</title>
+   <link href="http://blog.hayleyanderson.us/2015/07/26/passing-information-between-django-form-wizard-steps/"/>
+   <updated>2015-07-26T00:00:00-04:00</updated>
+   <id>http://blog.hayleyanderson.us/2015/07/26/passing-information-between-django-form-wizard-steps</id>
+   <content type="html">&lt;p&gt;For the project I&amp;#39;m working on, users need to be able to choose a page and
+surface and then view the image corresponding to that page and surface and add
+a hotspot to it. Since this requires hitting the database to get the requested
+image path, I decided to place these steps on different pages using the
+form wizard from Django&amp;#39;s
+&lt;a href=&quot;http://django-formtools.readthedocs.org/en/latest/index.html&quot;&gt;form tools&lt;/a&gt;
+package. As with many things Django, passing information from one step to a
+later step where it will be used is a seemingly obvious but relatively
+undocumented use case.&lt;/p&gt;
+
+&lt;p&gt;Getting step data from an instance of the wizard appears simple, but as I went
+to actually implement it, I realized... where is the instance of the wizard
+anyway? Setting up the wizard actually does not involve explicitly instantiating
+an instance of the wizard - nor of any of the forms, for that matter. The wizard
+instance can in fact be found in the wizard template file, but not only is that
+a bad place for accessing and manipulating data, but it could not (sensibly, at
+least), be passed from there back into the appropriate form instance.&lt;/p&gt;
+
+&lt;p&gt;The next option is to access the wizard instance from within the wizard&amp;#39;s
+existing instance methods. Fortunately, there&amp;#39;s one that&amp;#39;s going to
+automatically fix your next problem - that of getting the information back into
+the appropriate form. The wizard instance method &lt;code&gt;get_form_initial(self, step)&lt;/code&gt;
+is going to be called on each form/step within the wizard form and provide to
+that step a dictionary of initial values presumably corresponding to each form
+field.&lt;/p&gt;
+
+&lt;p&gt;It did not occur to me at first to make use of the initial dictionary (despite
+&lt;a href=&quot;http://chriskief.com/2013/05/24/django-form-wizard-and-getting-data-from-previous-steps/&quot;&gt;this&lt;/a&gt;
+being the only relevant post I could find) because I didn&amp;#39;t have any form fields
+that I wanted to be given defaults to show to the user. But guess what, there&amp;#39;s
+no requirement to use the initial dictionary in this way -
+this is Django! I already had a fake field on my hotspot form to hold the widget
+that will display the image to the user, so it may as well have a fake initial
+value too. And in fact, thanks to the way widgets work, using the initial
+dictionary is by far the easiest way to pass in data.&lt;/p&gt;
+
+&lt;p&gt;So how do initial dictionaries work? Here&amp;#39;s the
+&lt;a href=&quot;https://github.com/django/django-formtools/blob/master/formtools/wizard/views.py#L374&quot;&gt;original method&lt;/a&gt;,
+on &lt;code&gt;WizardView&lt;/code&gt;, which is the parent class of &lt;code&gt;CookieWizardView&lt;/code&gt;:&lt;/p&gt;
+
+&lt;div class=&quot;highlight&quot;&gt;&lt;pre&gt;&lt;code class=&quot;language-python&quot; data-lang=&quot;python&quot;&gt;&lt;span class=&quot;k&quot;&gt;class&lt;/span&gt; &lt;span class=&quot;nc&quot;&gt;WizardView&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;TemplateView&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;):&lt;/span&gt;
+    &lt;span class=&quot;o&quot;&gt;...&lt;/span&gt;
+
+    &lt;span class=&quot;k&quot;&gt;def&lt;/span&gt; &lt;span class=&quot;nf&quot;&gt;get_form_initial&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;bp&quot;&gt;self&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;step&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;):&lt;/span&gt;
+        &lt;span class=&quot;sd&quot;&gt;&amp;quot;&amp;quot;&amp;quot;&lt;/span&gt;
+&lt;span class=&quot;sd&quot;&gt;        Returns a dictionary which will be passed to the form for `step`&lt;/span&gt;
+&lt;span class=&quot;sd&quot;&gt;        as `initial`. If no initial data was provided while initializing the&lt;/span&gt;
+&lt;span class=&quot;sd&quot;&gt;        form wizard, an empty dictionary will be returned.&lt;/span&gt;
+&lt;span class=&quot;sd&quot;&gt;        &amp;quot;&amp;quot;&amp;quot;&lt;/span&gt;
+        &lt;span class=&quot;k&quot;&gt;return&lt;/span&gt; &lt;span class=&quot;bp&quot;&gt;self&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;initial_dict&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;get&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;step&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;{})&lt;/span&gt;
+
+    &lt;span class=&quot;o&quot;&gt;...&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
+
+&lt;p&gt;And &lt;a href=&quot;https://github.com/django/django-formtools/blob/master/formtools/wizard/views.py#L135&quot;&gt;source code commentary&lt;/a&gt;
+on &lt;code&gt;initial_dict&lt;/code&gt;:&lt;/p&gt;
+
+&lt;blockquote&gt;
+&lt;p&gt;&lt;code&gt;initial_dict&lt;/code&gt; - contains a dictionary of initial data dictionaries. The key
+should be equal to the &lt;code&gt;step_name&lt;/code&gt; in the &lt;code&gt;form_list&lt;/code&gt; (or the str of the zero
+based counter - if no &lt;code&gt;step_names&lt;/code&gt; added in the &lt;code&gt;form_list&lt;/code&gt;)&lt;/p&gt;
+&lt;/blockquote&gt;
+
+&lt;p&gt;Somewhat confusing, but very useful. And then here is my version of the method:&lt;/p&gt;
+
+&lt;div class=&quot;highlight&quot;&gt;&lt;pre&gt;&lt;code class=&quot;language-python&quot; data-lang=&quot;python&quot;&gt;&lt;span class=&quot;k&quot;&gt;class&lt;/span&gt; &lt;span class=&quot;nc&quot;&gt;HotspotWizard&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;CookieWizardView&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;):&lt;/span&gt;
+    &lt;span class=&quot;o&quot;&gt;...&lt;/span&gt;
+
+    &lt;span class=&quot;k&quot;&gt;def&lt;/span&gt; &lt;span class=&quot;nf&quot;&gt;get_form_initial&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;bp&quot;&gt;self&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;step&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;):&lt;/span&gt;
+        &lt;span class=&quot;n&quot;&gt;initial&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;{}&lt;/span&gt;
+
+        &lt;span class=&quot;c&quot;&gt;# If at second step, add image path to initial data for canvas field&lt;/span&gt;
+        &lt;span class=&quot;k&quot;&gt;if&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;step&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;==&lt;/span&gt; &lt;span class=&quot;s&quot;&gt;&amp;#39;1&amp;#39;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;:&lt;/span&gt;
+            &lt;span class=&quot;n&quot;&gt;first_step_data&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;bp&quot;&gt;self&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;storage&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;get_step_data&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;s&quot;&gt;&amp;#39;0&amp;#39;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;)&lt;/span&gt;
+            &lt;span class=&quot;n&quot;&gt;page_id&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;first_step_data&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;get&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;s&quot;&gt;&amp;#39;0-page&amp;#39;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt;&lt;span class=&quot;s&quot;&gt;&amp;#39;&amp;#39;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;)&lt;/span&gt;
+            &lt;span class=&quot;n&quot;&gt;surface&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;first_step_data&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;get&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;s&quot;&gt;&amp;#39;0-surface&amp;#39;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt;&lt;span class=&quot;s&quot;&gt;&amp;#39;&amp;#39;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;)&lt;/span&gt;
+            &lt;span class=&quot;n&quot;&gt;initial&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;[&lt;/span&gt;&lt;span class=&quot;s&quot;&gt;&amp;#39;canvas&amp;#39;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;]&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;bp&quot;&gt;self&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;get_image_data&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;page_id&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;surface&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;)&lt;/span&gt;
+
+        &lt;span class=&quot;k&quot;&gt;return&lt;/span&gt; &lt;span class=&quot;bp&quot;&gt;self&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;initial_dict&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;get&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;step&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;initial&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;)&lt;/span&gt;
+
+    &lt;span class=&quot;k&quot;&gt;def&lt;/span&gt; &lt;span class=&quot;nf&quot;&gt;get_image_data&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;bp&quot;&gt;self&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;page_id&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;surface&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;):&lt;/span&gt;
+        &lt;span class=&quot;n&quot;&gt;page&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;Page&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;objects&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;get&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;nb&quot;&gt;id&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;=&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;page_id&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;)&lt;/span&gt;
+
+        &lt;span class=&quot;k&quot;&gt;if&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;surface&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;==&lt;/span&gt; &lt;span class=&quot;s&quot;&gt;&amp;#39;brick&amp;#39;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;:&lt;/span&gt;
+            &lt;span class=&quot;k&quot;&gt;return&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;page&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;brick_background_path&lt;/span&gt;
+        &lt;span class=&quot;k&quot;&gt;else&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;:&lt;/span&gt;
+            &lt;span class=&quot;k&quot;&gt;return&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;page&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;glass_background_path&lt;/span&gt;
+
+    &lt;span class=&quot;o&quot;&gt;...&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
+
+&lt;p&gt;The method takes the name of the current step, an integer in string form,
+starting at zero. If the current step is the second step, then the data from the
+first step is fetched and is used to find the corresponding image path. The path
+is then entered into the &lt;code&gt;initial&lt;/code&gt; dictionary with the key being &lt;code&gt;canvas&lt;/code&gt;, the
+name of the fake field which will need access to the path. The method returns
+the already existing initial dictionary for the step in &lt;code&gt;initial_dict&lt;/code&gt;,
+or, since that key-value pair shouldn&amp;#39;t already exist, the &lt;code&gt;initial&lt;/code&gt; dictionary
+created within this method.&lt;/p&gt;
+
+&lt;p&gt;This means that on any step besides the second step, the initial dictionary will
+be the default, an empty dictionary, and on the second step, it will contain a
+value for the &lt;code&gt;canvas&lt;/code&gt; field. It&amp;#39;s important that the value be for the canvas
+field, because the canvas field is represented by a
+&lt;a href=&quot;https://docs.djangoproject.com/en/1.8/ref/forms/widgets/&quot;&gt;widget&lt;/a&gt;, which is
+where the path needs to be used. A widget is rendered by the method
+&lt;code&gt;def render(self, name, value, attrs=None)&lt;/code&gt;, and &lt;code&gt;value&lt;/code&gt; is the value corresponding
+to the field key in the initial dictionary for the current form. Thus, &lt;code&gt;value&lt;/code&gt;
+is the image path, and the image can now be easily rendered through the widget.&lt;/p&gt;
+</content>
+ </entry>
  
  <entry>
    <title>Validating File Types in Django</title>
