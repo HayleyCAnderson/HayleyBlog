@@ -87,9 +87,9 @@ class HotspotWizard(CookieWizardView):
         page = Page.objects.get(id=page_id)
 
         if surface == 'brick':
-            return page.brick_background_path
+            return page.brick_background_path()
         else:
-            return page.glass_background_path
+            return page.glass_background_path()
 
     ...
 {% endhighlight %}
