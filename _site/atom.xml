@@ -4,13 +4,69 @@
  <title>Hayley Anderson</title>
  <link href="http://blog.hayleyanderson.us/atom.xml" rel="self"/>
  <link href="http://blog.hayleyanderson.us/"/>
- <updated>2015-08-02T23:13:19-04:00</updated>
+ <updated>2015-08-30T20:39:35-04:00</updated>
  <id>http://blog.hayleyanderson.us/</id>
  <author>
    <name>Hayley Anderson</name>
    <email>hayleyanderson@zoho.com</email>
  </author>
 
+ 
+ <entry>
+   <title>Fixing Facebook</title>
+   <link href="http://blog.hayleyanderson.us/2015/08/30/fixing-facebook/"/>
+   <updated>2015-08-30T00:00:00-04:00</updated>
+   <id>http://blog.hayleyanderson.us/2015/08/30/fixing-facebook</id>
+   <content type="html">&lt;p&gt;Have you been thinking Facebook&amp;#39;s newsfeed sucks lately? I sure have. It&amp;#39;s been
+bad for a few years now, but in the last few months it&amp;#39;s gotten unbearable.
+Even worse is the new &amp;quot;Trending Stories&amp;quot; module, which seems to have been
+inspired by the New York Post. I started wishing, if only I could just get rid
+of them without losing Facebook&amp;#39;s other functionalities...&lt;/p&gt;
+
+&lt;p&gt;Then I remembered. I CAN do that.&lt;/p&gt;
+
+&lt;p&gt;Browsers allow users to upload custom stylesheets, and Facebook&amp;#39;s ids are
+unique enough to avoid conflicts with other websites. So regardless of your
+browser choice, all you need is a few lines of CSS to vanish the newsfeed and
+trending stories for good (well, until the next time Facebook changes the ids
+and the stylesheet needs to be updated).&lt;/p&gt;
+
+&lt;script src=&quot;https://gist.github.com/bd1a515bc7f4000a92a8.js&quot;&gt; &lt;/script&gt;
+
+&lt;h3&gt;To Use:&lt;/h3&gt;
+
+&lt;h4&gt;For Safari:&lt;/h4&gt;
+
+&lt;ul&gt;
+&lt;li&gt;Open the &amp;#39;better_facebook.css&amp;#39; link under the box above&lt;/li&gt;
+&lt;li&gt;Click &amp;quot;Download ZIP&amp;quot; on the right&lt;/li&gt;
+&lt;li&gt;Open/unpack the downloaded ZIP file&lt;/li&gt;
+&lt;li&gt;Move the &amp;#39;better_facebook.css&amp;#39; file from the unzipped folder to somewhere safe&lt;/li&gt;
+&lt;li&gt;Open Safari and click Safari &amp;gt; Preferences &amp;gt; Advanced&lt;/li&gt;
+&lt;li&gt;For &amp;quot;Style sheet&amp;quot; choose &amp;quot;Other...&amp;quot; and select the &amp;#39;better_facebook.css&amp;#39; file&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;h4&gt;For Chrome/Firefox:&lt;/h4&gt;
+
+&lt;ul&gt;
+&lt;li&gt;Copy the contents of the box above&lt;/li&gt;
+&lt;li&gt;Download the Stylish extension
+(&lt;a href=&quot;https://chrome.google.com/webstore/detail/stylish/fjnbnpbmkenffdnngjfgmeleoegfcffe&quot;&gt;Chrome&lt;/a&gt;
+or &lt;a href=&quot;https://addons.mozilla.org/en-us/firefox/addon/stylish/&quot;&gt;Firefox&lt;/a&gt;)&lt;/li&gt;
+&lt;li&gt;Click the Stylish icon &amp;gt; &amp;quot;Manage installed styles&amp;quot; &amp;gt; &amp;quot;Write new style&amp;quot;&lt;/li&gt;
+&lt;li&gt;Paste the text you copied into the &amp;quot;Code&amp;quot; box&lt;/li&gt;
+&lt;li&gt;On the left, enter &amp;quot;Better Facebook&amp;quot; or a name of your choosing&lt;/li&gt;
+&lt;li&gt;Click &amp;quot;Save&amp;quot;&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;p&gt;When you return to Facebook, it should be beautifully free of the newsfeed and
+trending stories. You&amp;#39;ll notice that you can still scroll on the homepage -
+this is because hiding the newsfeed entirely causes it to expand infinitely
+while invisible, which is spectacularly unhelpful.&lt;/p&gt;
+
+&lt;p&gt;Now ignore Facebook, and go find some real, non-clickbait news!&lt;/p&gt;
+</content>
+ </entry>
  
  <entry>
    <title>Creating a Django Widget to Draw and Calculate Dimensions of Rectangles on Images</title>
