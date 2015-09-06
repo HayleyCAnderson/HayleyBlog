@@ -6,15 +6,26 @@ layout: default
   <h1 class="post-title">{{ page.title }}</h1>
   <span class="post-date">{{ page.date | date_to_string }}</span>
   {{ content }}
-  <a href="https://twitter.com/share" class="twitter-share-button" data-via="HayleyCAnderson" data-count="none">Tweet</a>
-  <div class="fb-share-button" data-href="{{ site.url }}{{ page.url }}" data-layout="button"></div>
-  <script type="IN/Share" data-url="{{ site.url }}{{ page.url }}"></script>
-</div>
 
-<div class="related">
-  <h2>Related Posts</h2>
-  <ul class="related-posts">
-    {% for post in site.related_posts limit:3 %}
+  <div id="share-buttons">
+    <span class='st_facebook_large' displayText='Facebook'></span>
+    <span class='st_twitter_large' displayText='Tweet'></span>
+    <span class='st_linkedin_large' displayText='LinkedIn'></span>
+    <span class='st_pinterest_large' displayText='Pinterest'></span>
+    <span class='st_email_large' displayText='Email'></span>
+    <span class='st_sharethis_large' displayText='ShareThis'></span>
+  </div>
+  <script type="text/javascript">var switchTo5x=true;</script>
+  <script type="text/javascript"
+          src="http://w.sharethis.com/button/buttons.js"></script>
+  <script type="text/javascript">stLight.options({publisher:
+"340184d4-b551-489a-b4b1-1c51fb9dad22", doNotHash: false, doNotCopy: false,
+    hashAddressBar: false});</script>
+
+  <div class="related">
+    <h2>Related Posts</h2>
+    <ul class="related-posts">
+      {% for post in site.related_posts limit:3 %}
       <li>
         <h3>
           <a href="{{ post.url }}">
@@ -23,6 +34,19 @@ layout: default
           </a>
         </h3>
       </li>
-    {% endfor %}
-  </ul>
+      {% endfor %}
+    </ul>
+  </div>
+
+  <div id="disqus_thread"></div>
+  <script type="text/javascript">
+var disqus_shortname = 'hayleyanderson';
+
+(function() {
+  var dsq = document.createElement('script'); dsq.type = 'text/javascript'; dsq.async = true;
+  dsq.src = '//' + disqus_shortname + '.disqus.com/embed.js';
+  (document.getElementsByTagName('head')[0] || document.getElementsByTagName('body')[0]).appendChild(dsq);
+})();
+  </script>
+  <noscript>Please enable JavaScript to view the <a href="https://disqus.com/?ref_noscript" rel="nofollow">comments powered by Disqus.</a></noscript>
 </div>
