@@ -1,6 +1,7 @@
 ---
 layout: post
 title: Creating a Django Widget to Draw and Calculate Dimensions of Rectangles on Images
+category: Django
 ---
 
 In my [last post](/2015/07/26/passing-information-between-django-form-wizard-steps/)

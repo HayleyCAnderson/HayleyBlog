@@ -1,6 +1,7 @@
 ---
 layout: post
 title: Github and the Magical Black Hole of Version Control
+category: Beginner Resources
 ---
 
 In celebration of my first-ever (successful!) pull request, I'm dedicating this post to the use of git and Github. The concept of git and Github was a huge source of frustration to me early in the summer, when I painfully managed to get my website onto Github without any understanding of what I was doing. I'm still learning how to understand and use these tools effectively and appropriately, and I'm sure I will be for a very long time.
@@ -9,7 +10,7 @@ Git isn't something you can really see, certainly not in the way you can see the
 
 First you need to understand that git is a method of version control and tracks your changes, while Github is a website that makes git much easier to use and understand. Git runs Github, not the other way around. I think of git as a magical black hole that permanently absorbs information from files and can communicate between your computer and Github, but only if you tell it to and are responsible about doing so.
 
-You can connect files on your computer to Github by creating a folder, or [directory](http://files.fosswire.com/2007/08/fwunixref.pdf), adding in the files that you want to put on Github, and sprinkling magical git 'init' dust on the folder to transform it into a repository. This doesn't really change the folder; it just tells git to watch the folder. You then create a repository on Github, and tell git as directed that you want to connect the repository on your computer and the respository on Github.
+You can connect files on your computer to Github by creating a folder, or [directory](http://files.fosswire.com/2007/08/fwunixref.pdf), adding in the files that you want to put on Github, and sprinkling magical git 'init' dust on the folder to transform it into a repository. This doesn't really change the folder; it just tells git to watch the folder. You then create a repository on Github, and tell git as directed that you want to connect the repository on your computer and the repository on Github.
 
 Once your folder is a git repository, git can see the files in it, but it can't do anything with them. You need to 'add' those files. Now they're 'staged' but git still isn't doing anything with them; it just has the potential. If you want git to actually save those files or the new changes in them, you need to 'commit' them. The files on your computer will be unchanged, but now copies of those files, any past versions of those files that you committed, and the 'commit' messages you added will permanently reside in the magical black hole of git. It's only at this point that you can tell Github about these files, and if you're ready, 'push' them into the 'master' branch of the repository on Github.
 

@@ -1,6 +1,7 @@
 ---
 layout: post
 title: Validating File Types in Django
+category: Django
 ---
 
 So, I recently picked up Python, and then Django, because expanding my world

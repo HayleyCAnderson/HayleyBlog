@@ -1,6 +1,7 @@
 ---
 layout: post
 title: Fixing Facebook
+category: Random
 ---
 
 Have you been thinking Facebook's newsfeed sucks lately? I sure have. It's been

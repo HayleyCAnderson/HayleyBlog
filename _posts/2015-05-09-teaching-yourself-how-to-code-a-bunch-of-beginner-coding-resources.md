@@ -1,6 +1,7 @@
 ---
 layout: post
 title: Teaching Yourself How to Code - A Bunch of Beginner Coding Resources
+category: Beginner Resources
 ---
 
 I love giving people resources for learning how to code, so I thought I should

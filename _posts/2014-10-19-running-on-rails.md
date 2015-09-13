@@ -1,6 +1,7 @@
 ---
 layout: post
 title: Running on Rails
+category: Back to Basics
 ---
 
 I'm going to start aiming for shorter, more frequent posts. The last couple

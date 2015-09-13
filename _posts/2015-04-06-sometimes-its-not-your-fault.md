@@ -1,6 +1,7 @@
 ---
 layout: post
 title: Sometimes It's Not Your Fault
+category: Back to Basics
 ---
 
 My blog has been pretty dead for a while, as I've been busy with starting a new

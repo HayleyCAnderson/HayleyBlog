@@ -1,6 +1,7 @@
 ---
 layout: post
 title: Parsing JSON and Passing Data Into a Table
+category: Rails
 ---
 
 Last week I talked about [querying data from an open data API](/2014/12/24/using-the-socrata-open-data-api-and-gem-to-make-complex-queries) for use in my project, [SaferNYC](http://safernyc.com). In this post, I'll talk about the results of those queries and how to deal with that data.

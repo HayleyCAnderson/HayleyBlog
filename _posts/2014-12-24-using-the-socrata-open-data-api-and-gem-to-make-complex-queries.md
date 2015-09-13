@@ -1,6 +1,7 @@
 ---
 layout: post
 title: Using the Socrata Open Data API and Gem to Make Complex Queries
+category: Rails
 ---
 
 Over the past few weeks, I've been working on my capstone project for Metis. My project, SaferNYC, explores data from [NYC Open Data](https://nycopendata.socrata.com/NYC-BigApps/NYPD-Motor-Vehicle-Collisions/h9gi-nx95?), visualizing New York City car collisions involving cyclists and pedestrians. You can view my project at [safernyc.com](http://safernyc.com).

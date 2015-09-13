@@ -1,6 +1,7 @@
 ---
 layout: post
 title: Changeability and Design
+category: Back to Basics
 ---
 
 I always come up with ideas for posts, but then I never feel like actually writing the posts. So now I have to combine several of the topics I was intending to write about, including git and polymorphism. They do, after all, have the same themes in common. In short, they can provide, and are best used with, carefully planned design and an ability to smoothly make changes as time goes on.

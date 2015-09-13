@@ -1,10 +1,11 @@
 ---
 layout: post
 title: So You Need to Make a Static Website with Repetition and Logic
+category: Random
 ---
 
 Or When and How to Use Middleman
-==========
+----------
 Maybe you've made static websites, maybe you've made Rails applications, but what
 happens if you need to make something that's in between? It's not a dynamic
 application, but it will require repetitive code, use logic, or
