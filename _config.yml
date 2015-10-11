@@ -1,9 +1,13 @@
 # Dependencies
 markdown: redcarpet
 highlighter: pygments
+gems:
+  - jekyll-sitemap
+category_archive:
+  slugify: true
 
 # Permalinks
-permalink: pretty
+permalink: /:year/:month/:day/:title/
 relative_permalinks: true
 
 # Setup
@@ -18,6 +22,6 @@ author:
   email:          "hayleyanderson@zoho.com"
   url:            http://hayleyanderson.us
 
-paginate:         5
+paginate:         3
 
 # Custom vars

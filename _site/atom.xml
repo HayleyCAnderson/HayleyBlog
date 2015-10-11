@@ -4,7 +4,7 @@
  <title>Hayley Anderson</title>
  <link href="http://blog.hayleyanderson.us/atom.xml" rel="self"/>
  <link href="http://blog.hayleyanderson.us/"/>
- <updated>2015-09-06T14:40:48-04:00</updated>
+ <updated>2015-10-11T16:31:00-04:00</updated>
  <id>http://blog.hayleyanderson.us/</id>
  <author>
    <name>Hayley Anderson</name>
@@ -895,7 +895,7 @@ this can help someone, and feel free to contact me to get some more of those boo
    <link href="http://blog.hayleyanderson.us/2015/04/22/so-you-need-to-make-a-static-website-with-repetition-and-logic/"/>
    <updated>2015-04-22T00:00:00-04:00</updated>
    <id>http://blog.hayleyanderson.us/2015/04/22/so-you-need-to-make-a-static-website-with-repetition-and-logic</id>
-   <content type="html">&lt;h1&gt;Or When and How to Use Middleman&lt;/h1&gt;
+   <content type="html">&lt;h2&gt;Or When and How to Use Middleman&lt;/h2&gt;
 
 &lt;p&gt;Maybe you&amp;#39;ve made static websites, maybe you&amp;#39;ve made Rails applications, but what
 happens if you need to make something that&amp;#39;s in between? It&amp;#39;s not a dynamic
@@ -1415,7 +1415,7 @@ some of the more interesting things that Ruby and/or Rails can do.&lt;/p&gt;
 
 &lt;p&gt;First you need to understand that git is a method of version control and tracks your changes, while Github is a website that makes git much easier to use and understand. Git runs Github, not the other way around. I think of git as a magical black hole that permanently absorbs information from files and can communicate between your computer and Github, but only if you tell it to and are responsible about doing so.&lt;/p&gt;
 
-&lt;p&gt;You can connect files on your computer to Github by creating a folder, or &lt;a href=&quot;http://files.fosswire.com/2007/08/fwunixref.pdf&quot;&gt;directory&lt;/a&gt;, adding in the files that you want to put on Github, and sprinkling magical git &amp;#39;init&amp;#39; dust on the folder to transform it into a repository. This doesn&amp;#39;t really change the folder; it just tells git to watch the folder. You then create a repository on Github, and tell git as directed that you want to connect the repository on your computer and the respository on Github.&lt;/p&gt;
+&lt;p&gt;You can connect files on your computer to Github by creating a folder, or &lt;a href=&quot;http://files.fosswire.com/2007/08/fwunixref.pdf&quot;&gt;directory&lt;/a&gt;, adding in the files that you want to put on Github, and sprinkling magical git &amp;#39;init&amp;#39; dust on the folder to transform it into a repository. This doesn&amp;#39;t really change the folder; it just tells git to watch the folder. You then create a repository on Github, and tell git as directed that you want to connect the repository on your computer and the repository on Github.&lt;/p&gt;
 
 &lt;p&gt;Once your folder is a git repository, git can see the files in it, but it can&amp;#39;t do anything with them. You need to &amp;#39;add&amp;#39; those files. Now they&amp;#39;re &amp;#39;staged&amp;#39; but git still isn&amp;#39;t doing anything with them; it just has the potential. If you want git to actually save those files or the new changes in them, you need to &amp;#39;commit&amp;#39; them. The files on your computer will be unchanged, but now copies of those files, any past versions of those files that you committed, and the &amp;#39;commit&amp;#39; messages you added will permanently reside in the magical black hole of git. It&amp;#39;s only at this point that you can tell Github about these files, and if you&amp;#39;re ready, &amp;#39;push&amp;#39; them into the &amp;#39;master&amp;#39; branch of the repository on Github.&lt;/p&gt;
 
@@ -1446,7 +1446,7 @@ some of the more interesting things that Ruby and/or Rails can do.&lt;/p&gt;
 
 &lt;p&gt;We jumped into using objects on Day One, when we created a simple guessing game. The computer picks a random number between one and ten, and you try to guess what it is (until you get it wrong three times). Then we added the ability to play multiple rounds, and to end the game by telling you how many times you won, as well as the depressingly-close-to-three average number of guesses per round.&lt;/p&gt;
 
-&lt;p&gt;This game uses at least a Game class and a Round class, and muliple methods, or chunks of useful code, within each of them. There&amp;#39;s only one game, or one game object, each time you run the program, but there are multiple rounds, or multiple instances of the round object. Or more, multiple round objects. The Game class must introduce the game, run the rounds, count the total scores, and announce the scores at the end. This means that the class should contain at least a welcome method, a loop that creates and starts each round, a scoring method, and an ending method.&lt;/p&gt;
+&lt;p&gt;This game uses at least a Game class and a Round class, and multiple methods, or chunks of useful code, within each of them. There&amp;#39;s only one game, or one game object, each time you run the program, but there are multiple rounds, or multiple instances of the round object. Or more, multiple round objects. The Game class must introduce the game, run the rounds, count the total scores, and announce the scores at the end. This means that the class should contain at least a welcome method, a loop that creates and starts each round, a scoring method, and an ending method.&lt;/p&gt;
 
 &lt;p&gt;The Round class, meanwhile, must choose a random number, ask for guesses, tally guesses to be calculated in the average, evaluate guesses, and respond. It gets to have a method for each step, and a loop that runs the guess/tally/evaluation/response pieces three times, unless the loop is broken by a correct guess. (Which then starts a new round, unless the game has already looped through the Round class five times.)&lt;/p&gt;
 

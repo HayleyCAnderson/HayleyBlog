@@ -3,14 +3,16 @@ layout: default
 title: Blog
 ---
 
+<h1>Recent Posts</h1>
+
 <div class="posts">
   {% for post in paginator.posts %}
   <div class="post">
-    <h1 class="post-title">
+    <h2 class="post-title">
       <a href="{{ post.url }}">
         {{ post.title }}
       </a>
-    </h1>
+    </h2>
 
     <span class="post-date">{{ post.date | date_to_string }}</span>
 
@@ -23,19 +25,13 @@ title: Blog
   {% endfor %}
 </div>
 
-<div class="pagination">
-  {% if paginator.next_page %}
-    <a class="pagination-item older" href="/page{{paginator.next_page}}">Older</a>
-  {% else %}
-    <span class="pagination-item older">Older</span>
-  {% endif %}
-  {% if paginator.previous_page %}
-    {% if paginator.page == 2 %}
-      <a class="pagination-item newer" href="/">Newer</a>
-    {% else %}
-      <a class="pagination-item newer" href="/page{{paginator.previous_page}}">Newer</a>
-    {% endif %}
-  {% else %}
-    <span class="pagination-item newer">Newer</span>
-  {% endif %}
+<h1>Archive Categories</h1>
+
+<div class="categories">
+  {% for category_info in site.categories %}
+    <h4>
+      <a href="/{{ category_info[0] | slugify }}">{{ category_info[0] | capitalize }}</a>
+      ({{ category_info[1] | size }} posts)
+    </h4>
+  {% endfor %}
 </div>

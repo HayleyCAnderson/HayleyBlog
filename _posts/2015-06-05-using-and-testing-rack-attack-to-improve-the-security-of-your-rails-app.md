@@ -1,6 +1,7 @@
 ---
 layout: post
 title: Using (and Testing) Rack::Attack to Improve the Security of Your Rails App
+category: Rails
 ---
 
 Rack::Attack is a rack middleware intended to protect Rails

@@ -1,6 +1,7 @@
 ---
 layout: post
 title: Passing Information Between Django Form Wizard Steps
+category: Django
 ---
 
 For the project I'm working on, users need to be able to choose a page and

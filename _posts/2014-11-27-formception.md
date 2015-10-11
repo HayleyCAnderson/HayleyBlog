@@ -1,6 +1,7 @@
 ---
 layout: post
 title: Formception
+category: Rails
 ---
 
 Or how to make forms within forms to make forms within forms. The key here is the magic (yes, actual magic) of `accepts_nested_attributes_for`.

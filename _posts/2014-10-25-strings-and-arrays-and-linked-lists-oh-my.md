@@ -1,6 +1,7 @@
 ---
 layout: post
 title: Strings and Arrays and Linked Lists, Oh My!
+category: Back to Basics
 ---
 
 I've spent some time the past couple weeks learning about data structures and algorithms. I started out [here](http://code.tutsplus.com/tutorials/algorithms-and-data-structures--cms-20437), reading about some of the basics of data structures. I've since been reading [Problem Solving with Algorithms and Data Structures](http://interactivepython.org/runestone/static/pythonds/index.html) on Interactive Python, and everything is starting to make more sense.

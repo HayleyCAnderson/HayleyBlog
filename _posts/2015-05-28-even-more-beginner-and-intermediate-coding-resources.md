@@ -1,6 +1,7 @@
 ---
 layout: post
 title: Even More Beginner (And Intermediate) Coding Resources
+category: Beginner Resources
 ---
 
 I decided to make a follow-up to my
