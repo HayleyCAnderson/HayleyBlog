@@ -1,6 +1,10 @@
 # Dependencies
 markdown: redcarpet
 highlighter: pygments
+gems:
+  - jekyll-sitemap
+category_archive:
+  slugify: true
 
 # Permalinks
 permalink: /:year/:month/:day/:title/

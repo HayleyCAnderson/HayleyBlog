@@ -30,7 +30,7 @@ title: Blog
 <div class="categories">
   {% for category_info in site.categories %}
     <h4>
-      <a href="/{{ category_info[0] }}">{{ category_info[0] | capitalize }}</a>
+      <a href="/{{ category_info[0] | slugify }}">{{ category_info[0] | capitalize }}</a>
       ({{ category_info[1] | size }} posts)
     </h4>
   {% endfor %}
