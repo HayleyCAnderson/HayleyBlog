@@ -1,14 +1,9 @@
 # Dependencies
 markdown: redcarpet
 highlighter: pygments
-category_archive:
-  slugify: true
 gems:
+  - jekyll-archives
   - jekyll-sitemap
-
-# Permalinks
-permalink: /:year/:month/:day/:title/
-relative_permalinks: true
 
 # Setup
 title: "Hayley Anderson"
@@ -19,3 +14,15 @@ author:
   name:           "Hayley Anderson"
   email:          "hayleyanderson@zoho.com"
   url:            http://blog.hayleyanderson.us
+
+# Permalinks
+permalink: /:year/:month/:day/:title/
+relative_permalinks: true
+
+# Archives
+jekyll-archives:
+  enabled:
+    - categories
+  layout: 'category_archive'
+  permalinks:
+    category: /:name/

@@ -1,12 +1,27 @@
 ---
 layout: default
-slugify: true
 ---
 <div class="category-archive">
   <div>
-    <h1>Archive &middot; {{ page.category | capitalize }}</h1>
+    <h1>Archive &middot; {{ page.title | capitalize }}</h1>
   </div>
   <div>
-    {{ content }}
+    {% for post in page.posts %}
+      <div class="post">
+        <h2 class="post-title">
+          <a href="{{ post.url }}">
+            {{ post.title }}
+          </a>
+        </h2>
+
+        <span class="post-date">{{ post.date | date_to_string }}</span>
+
+        {{ post.excerpt | markdownify }}
+
+        <a href="{{ post.url }}">
+            Read more...
+        </a>
+      </div>
+    {% endfor %}
   </div>
 </div>
