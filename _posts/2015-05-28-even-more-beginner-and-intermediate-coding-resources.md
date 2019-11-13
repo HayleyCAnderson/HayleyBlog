@@ -8,7 +8,7 @@ I decided to make a follow-up to my
 on coding resources because I had a bunch of other resources I wanted to share,
 especially some that are beyond the beginner level.
 
-###Technology
+### Technology
 
 [Learn Python the Hard Way](http://learnpythonthehardway.org/book/index.html) -
 I just skipped through this book to learn Python syntax, and it looked like it
@@ -29,7 +29,7 @@ games that teach web and systems security. It's not just useful for learning
 about security though - I've found it very helpful in gaining a deeper
 understanding of how web sites and systems work.
 
-###Life as a Developer
+### Life as a Developer
 
 [Why Learning to Code is So Damn Hard](http://www.vikingcodeschool.com/posts/why-learning-to-code-is-so-damn-hard) -
 If you've finished the tutorials from my earlier post or are at a comparable

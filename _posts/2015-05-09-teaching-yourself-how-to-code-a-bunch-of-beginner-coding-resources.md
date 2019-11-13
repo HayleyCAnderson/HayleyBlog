@@ -10,7 +10,7 @@ on teaching yourself how to code. Her talk was 1000% accurate, but I used and
 recommend totally different resources. These are just some of the resources I
 used, but they're the ones I see as impacting my coding journey the most.
 
-###Front End
+### Front End
 
 Front end and back end are totally different, and you really don't need to know
 both - most people do one or the other - but if you're just getting started and
@@ -32,7 +32,7 @@ you how to get started with code, but it doesn't necessarily teach good code or
 complex code. Learn to Code HTML & CSS teaches you how to code properly and how
 to expand beyond the basics.
 
-###Back End
+### Back End
 
 I think that Ruby and Python are by far the best beginner coding languages. I'd
 suggest only starting with JavaScript if you know that you want to do front end
@@ -54,7 +54,7 @@ best learn some basics. This book uses Python, but Python is quite accessible
 coming from Ruby. This website also has other books involving Python, Java, and
 general computer science, if you'd rather go in one of those directions.
 
-###Version Control
+### Version Control
 
 Once you've been coding for a while, version control fades into the background,
 but when you're first starting, it's one of the more surprising and intimidating
@@ -76,7 +76,7 @@ basic commands you need to know to use git.
 some understanding of git, Atlassian's tutorials are great for explaining the
 variety of commands in more detail.
 
-###Going Live
+### Going Live
 
 So you've made a thing, but nobody really tells you how to actually put it
 online. It's pretty important, since that's sort of the point. Sometimes it's
@@ -91,7 +91,7 @@ I'm glad I did it because the learning value was huge.
 application with a back end instead of just a static front end site, congrats,
 and Heroku is the place to start if you want to get your application online.
 
-###Culture
+### Culture
 
 What is everyone in tech always talking about anyway? Being able to understand
 the culture and follow along with conversations is incredibly important and will

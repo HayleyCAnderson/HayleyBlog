@@ -1,10 +1,8 @@
 # Dependencies
-markdown: redcarpet
-highlighter: pygments
+plugins: [jekyll-gist, jekyll-paginate, pygments, redcarpet]
 
 # Permalinks
 permalink: pretty
-relative_permalinks: true
 
 # Setup
 title: Hayley Anderson

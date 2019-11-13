@@ -19,9 +19,9 @@ and the stylesheet needs to be updated).
 
 {% gist bd1a515bc7f4000a92a8 %}
 
-###To Use:
+### To Use:
 
-####For Safari:
+#### For Safari:
 * Open the 'better\_facebook.css' link under the box above
 * Click "Download ZIP" on the right
 * Open/unpack the downloaded ZIP file
@@ -29,7 +29,7 @@ and the stylesheet needs to be updated).
 * Open Safari and click Safari > Preferences > Advanced
 * For "Style sheet" choose "Other..." and select the 'better\_facebook.css' file
 
-####For Chrome/Firefox:
+#### For Chrome/Firefox:
 * Copy the contents of the box above
 * Download the Stylish extension
 ([Chrome](https://chrome.google.com/webstore/detail/stylish/fjnbnpbmkenffdnngjfgmeleoegfcffe)
